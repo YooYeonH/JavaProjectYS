@@ -22,7 +22,8 @@
 
 
 ## 5. 클래스 다이어그램
-![UML](https://user-images.githubusercontent.com/38810970/52179274-6aa5f580-281b-11e9-862b-4548d7d6b611.png)
+![UML](https://user-images.githubusercontent.com/38810970/52179369-13088980-281d-11e9-87d1-cb4a3988f0df.png)
+
 <br/><br/>
 
 ## 6. 프로그램 초기 구성 (GUI Layout) - Balsamiq mockup tool 사용
