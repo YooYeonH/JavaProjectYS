@@ -1,4 +1,6 @@
-//20171064 È²À¯¿¬, 20171040 ÃÖ¼¼¿µ
+
+//20171064 í™©ìœ ì—°, 20171040 ìµœì„¸ì˜
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -16,8 +18,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Frame2 extends JFrame {
-	// ÆĞ³Îµé°ú Frame°£ÀÇ ¿¬°áÀ» À§ÇÑ ÆĞ³Î Å¬·¡½º »ı¼º
-	// ¸ğµÎ °°Àº ÆĞÅ°Áö ³»ºÎ¿¡ Á¸ÀçÇØ¾ß ÇÔ
+	// íŒ¨ë„ë“¤ê³¼ Frameê°„ì˜ ì—°ê²°ì„ ìœ„í•œ íŒ¨ë„ í´ë˜ìŠ¤ ìƒì„±
+	// ëª¨ë‘ ê°™ì€ íŒ¨í‚¤ì§€ ë‚´ë¶€ì— ì¡´ì¬í•´ì•¼ í•¨
 	EnterGrade enter = new EnterGrade();
 	RankTable rankTable = new RankTable();
 	IndividualGradePanel individualPanel = new IndividualGradePanel();
@@ -28,9 +30,10 @@ public class Frame2 extends JFrame {
 	JTabbedPane pane = new JTabbedPane();
 
 	int init = 0;
-	//ÇÁ·¹ÀÓ »ı¼ºÀÚ
+
+	// í”„ë ˆì„ ìƒì„±ì
 	public Frame2() {
-		super("¼ºÀû ÇÁ·Î±×·¥");
+		super("ì„±ì  í”„ë¡œê·¸ë¨");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		JTabbedPane pane = createTabbedPane();
@@ -40,30 +43,31 @@ public class Frame2 extends JFrame {
 		setVisible(true);
 	}
 
-	// ÅÇ
+	// íƒ­
 	private JTabbedPane createTabbedPane() {
 
 		if (init == 0) {
-			setF = new setFile("C:\\Users\\User\\Documents\\info.txt");
-			// ÇĞ»ıµéÀÇ ±âº»Á¤º¸ ºÒ·¯¿À±â 
+			setF = new setFile("C:\\Users\\tpdud\\Downloads\\JavaProjectYS-master\\JavaProjectYS-master\\info.txt");
+			// í•™ìƒë“¤ì˜ ê¸°ë³¸ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
+			// info.txt íŒŒì¼ì˜ ìœ„ì¹˜ì— ë§ê²Œ ê²½ë¡œ ì„¤ì •ì„ í•´ì£¼ì–´ì•¼ í•¨
 			rankTable = new RankTable(setF.setArray());
 			individualPanel = new IndividualGradePanel(setF.setArray());
 			chartByLecture = new ChartByLecture(setF.setArray());
 			init++;
-			// Ã³À½ ÇÁ·Î±×·¥ ½ÇÇàÇÏÀÚ¸¶ÀÚ ±âº» ÆÄÀÏ ¿­¸®°í,
-			// ±× µÚ¿¡ »õ·Î¿î ÅØ½ºÆ®ÆÄÀÏÀ» ÁßÃ¸ÇØ¼­ ¿­ °æ¿ì¿¡´Â ÀÌ ±âº»ÆÄÀÏÀÌ ¶Ç ¿­¸®Áö ¾Ê°í
-			// »õ·Î¿î ÆÄÀÏÀÌ ¿­·Á¼­ µ¤À» ¼ö ÀÖµµ·Ï init º¯¼ö »ç¿ë
+			// ì²˜ìŒ í”„ë¡œê·¸ë¨ ì‹¤í–‰í•˜ìë§ˆì ê¸°ë³¸ íŒŒì¼ ì—´ë¦¬ê³ ,
+			// ê·¸ ë’¤ì— ìƒˆë¡œìš´ í…ìŠ¤íŠ¸íŒŒì¼ì„ ì¤‘ì²©í•´ì„œ ì—´ ê²½ìš°ì—ëŠ” ì´ ê¸°ë³¸íŒŒì¼ì´ ë˜ ì—´ë¦¬ì§€ ì•Šê³ 
+			// ìƒˆë¡œìš´ íŒŒì¼ì´ ì—´ë ¤ì„œ ë®ì„ ìˆ˜ ìˆë„ë¡ init ë³€ìˆ˜ ì‚¬ìš©
 		}
-		pane.addTab("¼ºÀû ÀÔ·Â", enter);
-		pane.addTab("ÀüÃ¼ ¼ºÀû Á¶È¸", rankTable);
-		pane.addTab("°³ÀÎ ¼ºÀû Á¶È¸", individualPanel);
-		pane.addTab("°­ÀÇº° ¼¼ºÎ Á¶È¸", chartByLecture);
+		pane.addTab("ì„±ì  ì…ë ¥", enter);
+		pane.addTab("ì „ì²´ ì„±ì  ì¡°íšŒ", rankTable);
+		pane.addTab("ê°œì¸ ì„±ì  ì¡°íšŒ", individualPanel);
+		pane.addTab("ê°•ì˜ë³„ ì„¸ë¶€ ì¡°íšŒ", chartByLecture);
 		return pane;
 	}
 
-	// ¸Ş´º¹Ù
+	// ë©”ë‰´ë°”
 	private void createMenu() {
-		//¸Ş´º¹Ù¿¡¼­ File->OpenÀ» ´©¸£¸é ¾×¼Ç¸®½º³Ê¸¦ ÅëÇØ ÆÄÀÏÀ» ºÒ·¯¿Â´Ù.
+		// ë©”ë‰´ë°”ì—ì„œ File->Openì„ ëˆ„ë¥´ë©´ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆë¥¼ í†µí•´ íŒŒì¼ì„ ë¶ˆëŸ¬ì˜¨ë‹¤.
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem openItem = new JMenuItem("Open");
 		openItem.addActionListener(oal);
@@ -80,7 +84,7 @@ public class Frame2 extends JFrame {
 
 	}
 
-	// ÆÄÀÏ ´ÙÀÌ¾ó·Î±× ¶ç¿ì±â
+	// íŒŒì¼ ë‹¤ì´ì–¼ë¡œê·¸ ë„ìš°ê¸°
 	class OpenActionListener implements ActionListener {
 		private JFileChooser chooser;
 
@@ -93,16 +97,16 @@ public class Frame2 extends JFrame {
 			chooser.setFileFilter(filter);
 			int ret = chooser.showOpenDialog(null);
 			if (ret != JFileChooser.APPROVE_OPTION) {
-				JOptionPane.showMessageDialog(null, "ÆÄÀÏÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "íŒŒì¼ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
 			File file = chooser.getSelectedFile();
 
-			// ºÒ·¯¿Â ÆÄÀÏ ÀÌ¸§À» ¶ç¿î´Ù
+			// ë¶ˆëŸ¬ì˜¨ íŒŒì¼ ì´ë¦„ì„ ë„ìš´ë‹¤
 			setF = new setFile(file.getPath());
 
-			//°¢ Å¬·¡½ºÀÇ °´Ã¼¸¦ ´Ù½Ã »ı¼ºÇØÁÖ°í ÅÇÆĞÀÎÀ» ´Ù½Ã ¸¸µç´Ù.
+			// ê° í´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ë‹¤ì‹œ ìƒì„±í•´ì£¼ê³  íƒ­íŒ¨ì¸ì„ ë‹¤ì‹œ ë§Œë“ ë‹¤.
 			rankTable = new RankTable(setF.setArray());
 			individualPanel = new IndividualGradePanel(setF.setArray());
 			chartByLecture = new ChartByLecture(setF.setArray());
@@ -114,38 +118,38 @@ public class Frame2 extends JFrame {
 	}
 
 	/**********************************************************************************/
-	// ¼ºÀû ÀÔ·Â ÆÇ³Ú
-	//»ó´ëÆò°¡½Ã A,B,BÀÇ ºñÀ²ÀÌ ÀúÀåµÇ´Â º¯¼ö
+	// ì„±ì  ì…ë ¥ íŒë„¬
+	// ìƒëŒ€í‰ê°€ì‹œ A,B,Bì˜ ë¹„ìœ¨ì´ ì €ì¥ë˜ëŠ” ë³€ìˆ˜
 	int gradePercent[] = new int[3];
-	//flag°¡ ÂüÀÏ°æ¿ì »ó´ëÆò°¡, °ÅÁşÀÏ °æ¿ì Àı´ëÆò°¡
+	// flagê°€ ì°¸ì¼ê²½ìš° ìƒëŒ€í‰ê°€, ê±°ì§“ì¼ ê²½ìš° ì ˆëŒ€í‰ê°€
 	boolean flag = false;
 
 	class EnterGrade extends JPanel {
 
-		JRadioButton absolute = new JRadioButton("Àı´ëÆò°¡");
-		JRadioButton relative = new JRadioButton("»ó´ëÆò°¡");
+		JRadioButton absolute = new JRadioButton("ì ˆëŒ€í‰ê°€");
+		JRadioButton relative = new JRadioButton("ìƒëŒ€í‰ê°€");
 
-		// ABC ÇĞÁ¡ ºñÀ² ÅØ½ºÆ®ÇÊµå
+		// ABC í•™ì  ë¹„ìœ¨ í…ìŠ¤íŠ¸í•„ë“œ
 		JTextField abc[] = new JTextField[3];
-		
-		//ÆÄÀÏÀÌ¸§ ÅØ½ºÆ®ÇÊµå, °ú¸ñÀÇ ÅØ½ºÆ®ÇÊµå¿Í Ã¼Å©¹Ú½º, 
+
+		// íŒŒì¼ì´ë¦„ í…ìŠ¤íŠ¸í•„ë“œ, ê³¼ëª©ì˜ í…ìŠ¤íŠ¸í•„ë“œì™€ ì²´í¬ë°•ìŠ¤,
 		JTextField fileNametf = new JTextField(15);
 		JTextField[] sub_tf = new JTextField[4];
 		JCheckBox[] sub_check = new JCheckBox[4];
 
-		/*************** »ı¼ºÀÚ *****************/
+		/*************** ìƒì„±ì *****************/
 		public EnterGrade() {
 
 			setBackground(Color.white);
-			// ÆÇ³Ú·Î ³ª´©±â
+			// íŒë„¬ë¡œ ë‚˜ëˆ„ê¸°
 			JPanel[] p = new JPanel[11];
-			// °ú¸ñ ÀÌ¸§°ú ÅØ½ºÆ®ÇÊµå¸¦ °°ÀÌ ºÙÀÎ ÆÇ³Ú
+			// ê³¼ëª© ì´ë¦„ê³¼ í…ìŠ¤íŠ¸í•„ë“œë¥¼ ê°™ì´ ë¶™ì¸ íŒë„¬
 			JPanel[] smallP = new JPanel[5];
-			// Layout ¼³Á¤
-			
+			// Layout ì„¤ì •
+
 			setLayout(new BorderLayout());
-			
-			// panel Å×µÎ¸®
+
+			// panel í…Œë‘ë¦¬
 			for (int i = 0; i < p.length; i++) {
 				p[i] = new JPanel();
 				p[i].setBorder(BorderFactory.createLineBorder(Color.black));
@@ -153,13 +157,13 @@ public class Frame2 extends JFrame {
 
 			/*************** p1 *****************/
 			TitledBorder title;
-			title = BorderFactory.createTitledBorder("ÆÄÀÏ ÀÌ¸§");
+			title = BorderFactory.createTitledBorder("íŒŒì¼ ì´ë¦„");
 			p[1].setBorder(title);
 			fileNametf.setEditable(false);
 			p[1].add(fileNametf);
 
 			/*************** p2 *****************/
-			title = BorderFactory.createTitledBorder("Æò°¡ ¹æ¹ı");
+			title = BorderFactory.createTitledBorder("í‰ê°€ ë°©ë²•");
 			p[2].setBorder(title);
 			ButtonGroup group = new ButtonGroup();
 
@@ -173,12 +177,12 @@ public class Frame2 extends JFrame {
 			p[2].add(relative, BorderLayout.EAST);
 
 			/*************** p3 *****************/
-			title = BorderFactory.createTitledBorder("ÇĞÁ¡ ±âÁØ");
+			title = BorderFactory.createTitledBorder("í•™ì  ê¸°ì¤€");
 			p[3].setBorder(title);
 			p[3].setLayout(new GridLayout(3, 1));
 			JLabel ABC[] = { new JLabel(" A "), new JLabel(" B "), new JLabel(" C ") };
 
-			JButton set = new JButton("¼³Á¤");
+			JButton set = new JButton("ì„¤ì •");
 
 			for (int i = 0; i < ABC.length; i++) {
 
@@ -191,13 +195,13 @@ public class Frame2 extends JFrame {
 
 			/*************** p4 *****************/
 			p[4].add(set);
-			// ¼³Á¤ ¹öÆ°À» ´©¸£¸é ÇĞÁ¡ ºñÀ²ÀÌ ¸â¹öº¯¼ö gradePercent¿¡ ÀúÀåµÊ
+			// ì„¤ì • ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ í•™ì  ë¹„ìœ¨ì´ ë©¤ë²„ë³€ìˆ˜ gradePercentì— ì €ì¥ë¨
 			set.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 
 					if (flag == false) {
 						JOptionPane.showMessageDialog(null,
-								"Àı´ëÆò°¡·Î Àû¿ëµË´Ï´Ù. 90Á¡ ÀÌ»ó A, 80Á¡ ÀÌ»ó 90Á¡ ¹Ì¸¸ B, 70Á¡ ÀÌ»ó 80Á¡ ¹Ì¸¸ C, ±× ÀÌÇÏ D", "¼º°ø",
+								"ì ˆëŒ€í‰ê°€ë¡œ ì ìš©ë©ë‹ˆë‹¤. 90ì  ì´ìƒ A, 80ì  ì´ìƒ 90ì  ë¯¸ë§Œ B, 70ì  ì´ìƒ 80ì  ë¯¸ë§Œ C, ê·¸ ì´í•˜ D", "ì„±ê³µ",
 								JOptionPane.INFORMATION_MESSAGE);
 					} else {
 						for (int i = 0; i < abc.length; i++) {
@@ -210,27 +214,27 @@ public class Frame2 extends JFrame {
 						JOptionPane
 								.showMessageDialog(null,
 										"A: " + gradePercent[0] + "% " + "B: " + gradePercent[1] + "% " + "C: "
-												+ gradePercent[2] + "% ºñÀ²ÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù.",
-										"¼º°ø", JOptionPane.INFORMATION_MESSAGE);
+												+ gradePercent[2] + "% ë¹„ìœ¨ì´ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.",
+										"ì„±ê³µ", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			});
 			/*************** p5 *****************/
-			title = BorderFactory.createTitledBorder("Á¡¼ö ÀÔ·Â");
+			title = BorderFactory.createTitledBorder("ì ìˆ˜ ì…ë ¥");
 			p[5].setBorder(title);
 
 			p[5].setLayout(new GridLayout(5, 1));
 
-			JLabel st_num = new JLabel("       ÇĞ¹ø");
+			JLabel st_num = new JLabel("       í•™ë²ˆ");
 			JLabel[] sub_la = new JLabel[4];
 
 			JTextField num = new JTextField(10);
 
-			String[] sub_name = { "   Java", "   ¼ÒÇÁÆ®¿ş¾î ºĞ¼® ¼³°è", "   ÄÄÇ»ÅÍ ±¸Á¶", "   °´Ã¼ÁöÇâ ÇÁ·Î±×·¡¹Ö" };
+			String[] sub_name = { "   Java", "   ì†Œí”„íŠ¸ì›¨ì–´ ë¶„ì„ ì„¤ê³„", "   ì»´í“¨í„° êµ¬ì¡°", "   ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë°" };
 
-			JButton saveBtn = new JButton("Å×ÀÌºí¿¡ Ãß°¡ÇÏ±â");
-			JButton clearBtn = new JButton("ÀÔ·Â ÃÊ±âÈ­");
-			JButton allCheckBtn = new JButton("¸ğµÎ Ã¼Å©");
+			JButton saveBtn = new JButton("í…Œì´ë¸”ì— ì¶”ê°€í•˜ê¸°");
+			JButton clearBtn = new JButton("ì…ë ¥ ì´ˆê¸°í™”");
+			JButton allCheckBtn = new JButton("ëª¨ë‘ ì²´í¬");
 			for (int i = 0; i < sub_name.length; i++) {
 				sub_la[i] = new JLabel(sub_name[i]);
 				sub_check[i] = new JCheckBox(sub_name[i], false);
@@ -263,7 +267,7 @@ public class Frame2 extends JFrame {
 
 					}
 				}
-			}); // ÃÊ±âÈ­ ¹öÆ° Å¬¸¯½Ã Ã¼Å©¹Ú½º ÇØÁ¦, ³»¿ë »èÁ¦
+			}); // ì´ˆê¸°í™” ë²„íŠ¼ í´ë¦­ì‹œ ì²´í¬ë°•ìŠ¤ í•´ì œ, ë‚´ìš© ì‚­ì œ
 
 			p[5].add(st_num);
 			p[5].add(num);
@@ -309,9 +313,9 @@ public class Frame2 extends JFrame {
 							break;
 						}
 					}
-					// ÇĞ¹ø¿¡ ÇØ´çÇÏ´Â ÇĞ»ıÀÌ ¾øÀ» °æ¿ì
+					// í•™ë²ˆì— í•´ë‹¹í•˜ëŠ” í•™ìƒì´ ì—†ì„ ê²½ìš°
 					if (break_point == 0) {
-						JOptionPane.showMessageDialog(null, "ÇĞ¹øÀÌ ¸Â´Â ÇĞ»ıÀÌ ¾ø½À´Ï´Ù.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "í•™ë²ˆì´ ë§ëŠ” í•™ìƒì´ ì—†ìŠµë‹ˆë‹¤.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 						num.setText("");
 
 						sub_tf[0].setText("");
@@ -329,7 +333,7 @@ public class Frame2 extends JFrame {
 
 					for (int i = 5; i < 9; i++) {
 						if (!(rankTable.tablemodel.getValueAt(index, i).equals(" "))) {
-							System.out.println("ÀÌ¹Ì ±âÀçµÈ ¼ºÀûÀÔ´Ï´Ù.");
+							System.out.println("ì´ë¯¸ ê¸°ì¬ëœ ì„±ì ì…ë‹ˆë‹¤.");
 
 							inputStr[i] = rankTable.tablemodel.getValueAt(index, i);
 						}
@@ -348,11 +352,11 @@ public class Frame2 extends JFrame {
 						pane.removeTabAt(1);
 					}
 
-					pane.addTab("ÀüÃ¼ ¼ºÀû Á¶È¸", rankTable);
-					pane.addTab("°³ÀÎ ¼ºÀû Á¶È¸", individualPanel);
-					pane.addTab("°­ÀÇº° ¼¼ºÎ Á¶È¸", chartByLecture);
+					pane.addTab("ì „ì²´ ì„±ì  ì¡°íšŒ", rankTable);
+					pane.addTab("ê°œì¸ ì„±ì  ì¡°íšŒ", individualPanel);
+					pane.addTab("ê°•ì˜ë³„ ì„¸ë¶€ ì¡°íšŒ", chartByLecture);
 
-					JOptionPane.showMessageDialog(null, num.getText() + " " + inputStr[3] + "ÀÇ ¼ºÀûÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù.", "¼º°ø",
+					JOptionPane.showMessageDialog(null, num.getText() + " " + inputStr[3] + "ì˜ ì„±ì ì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.", "ì„±ê³µ",
 							JOptionPane.INFORMATION_MESSAGE);
 
 					num.setText("");
@@ -374,7 +378,8 @@ public class Frame2 extends JFrame {
 			add(p[6], BorderLayout.SOUTH);
 
 		}
-		//Ã¼Å©¹Ú½º¸¦ ¼±ÅÃ/ÇØÁ¦ÇßÀ» ¶§ ÅØ½ºÆ®ÇÊµåÀÇ enable Á¤ÇÏ±â
+
+		// ì²´í¬ë°•ìŠ¤ë¥¼ ì„ íƒ/í•´ì œí–ˆì„ ë•Œ í…ìŠ¤íŠ¸í•„ë“œì˜ enable ì •í•˜ê¸°
 		class checkListener implements ItemListener {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -401,27 +406,28 @@ public class Frame2 extends JFrame {
 			}
 		}
 
-		// »ó´ëÆò°¡ ¹öÆ° Å¬¸¯½Ã ÇĞÁ¡ ºñÀ² ÀÔ·Â È°¼ºÈ­
+		// ìƒëŒ€í‰ê°€ ë²„íŠ¼ í´ë¦­ì‹œ í•™ì  ë¹„ìœ¨ ì…ë ¥ í™œì„±í™”
 		class Method implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == absolute) {
 					flag = false;
 					for (int i = 0; i < 3; i++) {
 						abc[i].setEnabled(flag);
-						
+
 					}
 				} else {
 					flag = true;
 					for (int i = 0; i < 3; i++) {
 						abc[i].setEnabled(flag);
-						
-					}}
+
+					}
+				}
 			}
 		}
 	}
 
 	/**********************************************************************************/
-	// ÀüÃ¼ ¼ºÀû Á¶È¸ ÆÇ³Ú
+	// ì „ì²´ ì„±ì  ì¡°íšŒ íŒë„¬
 	class RankTable extends JPanel {
 
 		JPanel p1 = new JPanel();
@@ -431,27 +437,28 @@ public class Frame2 extends JFrame {
 		JPanel p5 = new JPanel();
 
 		JLabel[] lab = new JLabel[2];
-		//ÆÄÀÏ ÀúÀå¹öÆ°
-		JButton store_btn = new JButton("ÆÄÀÏ ÀúÀåÇÏ±â");
-		//¿­ÀÇ ÀÌ¸§
-		String columnNames[] = { "¼®Â÷", "ÇĞ°ú", "ÇĞ¹ø", "ÀÌ¸§", "ÀüÈ­¹øÈ£", "Java", "¼ÒºĞ¼³", "ÄÄ±¸", "°´ÇÁ", "Æò±Õ" };
-		//Å×ÀÌºí¿¡ µé¾î°¥ 2Â÷¿ø ¹è¿­
+		// íŒŒì¼ ì €ì¥ë²„íŠ¼
+		JButton store_btn = new JButton("íŒŒì¼ ì €ì¥í•˜ê¸°");
+		// ì—´ì˜ ì´ë¦„
+		String columnNames[] = { "ì„ì°¨", "í•™ê³¼", "í•™ë²ˆ", "ì´ë¦„", "ì „í™”ë²ˆí˜¸", "Java", "ì†Œë¶„ì„¤", "ì»´êµ¬", "ê°í”„", "í‰ê· " };
+		// í…Œì´ë¸”ì— ë“¤ì–´ê°ˆ 2ì°¨ì› ë°°ì—´
 		Object rowData[][];
-		//Å×ÀÌºí ¸¸µé±â
+		// í…Œì´ë¸” ë§Œë“¤ê¸°
 		DefaultTableModel tablemodel = new DefaultTableModel(rowData, columnNames);
 		JTable jtable = new JTable(tablemodel);
 		JScrollPane scroll;
-		// Äü¼ÒÆ® »ı¼ºÀÚ
+		// í€µì†ŒíŠ¸ ìƒì„±ì
 		QuickSort quick = new QuickSort();
-		/***************»ı¼ºÀÚ****************/
+
+		/*************** ìƒì„±ì ****************/
 		public RankTable() {
 
 			rowData = new Object[20][10];
-			jtable.setEnabled(false); // ¼öÁ¤ ºÒ°¡
-			jtable.getColumn("ÀüÈ­¹øÈ£").setPreferredWidth(200);
-			jtable.getColumn("ÇĞ¹ø").setPreferredWidth(130);
-			jtable.getColumn("ÇĞ°ú").setPreferredWidth(130);
-			jtable.getColumn("ÀÌ¸§").setPreferredWidth(100);
+			jtable.setEnabled(false); // ìˆ˜ì • ë¶ˆê°€
+			jtable.getColumn("ì „í™”ë²ˆí˜¸").setPreferredWidth(200);
+			jtable.getColumn("í•™ë²ˆ").setPreferredWidth(130);
+			jtable.getColumn("í•™ê³¼").setPreferredWidth(130);
+			jtable.getColumn("ì´ë¦„").setPreferredWidth(100);
 			scroll = new JScrollPane(jtable);
 			scroll.setPreferredSize(new Dimension(690, 330));
 
@@ -464,11 +471,12 @@ public class Frame2 extends JFrame {
 			add(p3, BorderLayout.NORTH);
 			add(p1, BorderLayout.CENTER);
 			add(p2, BorderLayout.SOUTH);
-			
+
 		}
-		/***************»ı¼ºÀÚ****************/
-		public RankTable(Object[][] row) { //2Â÷¿ø ¹è¿­À» ÀÎ¼ö·Î ÇÏ´Â »ı¼ºÀÚ
-			//ÀÌÀüÀÇ Å×ÀÌºíÀ» »èÁ¦ÇÏ°í ´Ù½Ã ¸¸µç´Ù.
+
+		/*************** ìƒì„±ì ****************/
+		public RankTable(Object[][] row) { // 2ì°¨ì› ë°°ì—´ì„ ì¸ìˆ˜ë¡œ í•˜ëŠ” ìƒì„±ì
+			// ì´ì „ì˜ í…Œì´ë¸”ì„ ì‚­ì œí•˜ê³  ë‹¤ì‹œ ë§Œë“ ë‹¤.
 			removeAll();
 
 			rowData = new Object[row.length][10];
@@ -482,23 +490,23 @@ public class Frame2 extends JFrame {
 			this.setBackground(Color.white);
 			setLayout(new BorderLayout());
 
-			// p[0] »ç¿ë ¾ÈÇÔ
+			// p[0] ì‚¬ìš© ì•ˆí•¨
 
 			tablemodel = new DefaultTableModel(rowData, columnNames);
 			setAverageColumn(rowData);
 
 			jtable = new JTable(tablemodel);
 			jtable.setAutoCreateRowSorter(true);
-			//TableRowSorter tablesorter = new TableRowSorter(jtable.getModel());
-			//jtable.setRowSorter(tablesorter);
-			jtable.setEnabled(false); // ¼öÁ¤ ºÒ°¡
-			jtable.getColumn("ÀüÈ­¹øÈ£").setPreferredWidth(200);
-			jtable.getColumn("ÇĞ¹ø").setPreferredWidth(130);
-			jtable.getColumn("ÇĞ°ú").setPreferredWidth(130);
-			jtable.getColumn("ÀÌ¸§").setPreferredWidth(100);
+			// TableRowSorter tablesorter = new TableRowSorter(jtable.getModel());
+			// jtable.setRowSorter(tablesorter);
+			jtable.setEnabled(false); // ìˆ˜ì • ë¶ˆê°€
+			jtable.getColumn("ì „í™”ë²ˆí˜¸").setPreferredWidth(200);
+			jtable.getColumn("í•™ë²ˆ").setPreferredWidth(130);
+			jtable.getColumn("í•™ê³¼").setPreferredWidth(130);
+			jtable.getColumn("ì´ë¦„").setPreferredWidth(100);
 			scroll = new JScrollPane(jtable);
 
-			// DefaultTableCellHeaderRenderer »ı¼º (°¡¿îµ¥ Á¤·Ä)
+			// DefaultTableCellHeaderRenderer ìƒì„± (ê°€ìš´ë° ì •ë ¬)
 
 			DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
 			tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -519,9 +527,9 @@ public class Frame2 extends JFrame {
 			add(p1, BorderLayout.CENTER);
 			add(p5, BorderLayout.SOUTH);
 
-			repaint(); 
+			repaint();
 
-			// ÆÄÀÏ¿¡ ÀúÀåÇÏ±â, store_btnÀÇ ¾×¼Ç¸®½º³Ê
+			// íŒŒì¼ì— ì €ì¥í•˜ê¸°, store_btnì˜ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			store_btn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					FileOut FO = new FileOut(rankTable.tablemodel);
@@ -530,19 +538,19 @@ public class Frame2 extends JFrame {
 
 		}
 
-		/**** Æò±Õ °¡Á®¿Í¼­ ¿­¿¡ Ãß°¡ÇÏ±â ****/
+		/**** í‰ê·  ê°€ì ¸ì™€ì„œ ì—´ì— ì¶”ê°€í•˜ê¸° ****/
 		public void setAverageColumn(Object[][] rowData) {
 			float[] avgColumn = new float[tablemodel.getRowCount()];
 			float sum = 0;
 			int j = 0;
-			int count = 0;// °ú¸ñ °¹¼ö
+			int count = 0;// ê³¼ëª© ê°¯ìˆ˜
 			int full_aver = 0;
 			int place;
 			int empty;
 			if (init == 0) {
 				++init;
 				return;
-			} // ÃÊ±â È­¸é ºÒ·¯¿Ã °æ¿ì µî¼ö °Çµå¸®Áö ¾ÊÀ½
+			} // ì´ˆê¸° í™”ë©´ ë¶ˆëŸ¬ì˜¬ ê²½ìš° ë“±ìˆ˜ ê±´ë“œë¦¬ì§€ ì•ŠìŒ
 
 			for (int i = 0; i < tablemodel.getRowCount(); i++) {
 				sum = 0;
@@ -564,7 +572,7 @@ public class Frame2 extends JFrame {
 					tablemodel.setValueAt(0.0, i, 9);
 					avgColumn[i] = 0;
 				} else {
-					tablemodel.setValueAt(sum / count, i, 9); // ÀüÃ¼ 4°ú¸ñÀÇ Æò±ÕÀ» °è»êÇØ¼­ ÀúÀå
+					tablemodel.setValueAt(sum / count, i, 9); // ì „ì²´ 4ê³¼ëª©ì˜ í‰ê· ì„ ê³„ì‚°í•´ì„œ ì €ì¥
 					float temp = sum / count;
 					avgColumn[i] = temp;
 				}
@@ -573,9 +581,10 @@ public class Frame2 extends JFrame {
 
 			quick.sort(avgColumn, 0, avgColumn.length - 1);
 			// System.out.println(avgColumn.length);
-			/*for (int i = 0; i < avgColumn.length; i++) {
-				System.out.println(avgColumn[i]);
-			}*/
+			/*
+			 * for (int i = 0; i < avgColumn.length; i++) {
+			 * System.out.println(avgColumn[i]); }
+			 */
 			place = 1;
 			int repeat = 0;
 			for (int j1 = avgColumn.length - 1; j1 >= 0; j1--) {
@@ -595,8 +604,8 @@ public class Frame2 extends JFrame {
 						tablemodel.setValueAt(place, k, 0);
 						rowData[k][0] = place;
 						repeat++;
-						//System.out.println("repeat" + repeat);
-						//System.out.println("place" + place);
+						// System.out.println("repeat" + repeat);
+						// System.out.println("place" + place);
 					}
 
 				}
@@ -609,7 +618,7 @@ public class Frame2 extends JFrame {
 	}
 
 	/**********************************************************************************/
-	// °³ÀÎ ¼ºÀû Á¶È¸ ÆÇ³Ú
+	// ê°œì¸ ì„±ì  ì¡°íšŒ íŒë„¬
 	class IndividualGradePanel extends JPanel {
 		Grade g;
 		Object table[][];
@@ -620,17 +629,17 @@ public class Frame2 extends JFrame {
 		JComboBox<String> Major;
 		JComboBox<String> StudentID;
 		JLabel[] la = new JLabel[4];
-		// ÇÏ´Ü ¶óº§
-		JLabel bottom_la = new JLabel("ÇĞ°ú, ÇĞ¹ø, ÀÌ¸§À» ÀÔ·ÂÇÏ°í Á¶È¸ ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä.");
-		// p[0] »ó´ÜÀÇ ¹Ù, p[1] ±×·¡ÇÁ Ãâ·Â, p[2] ÇÏ´Ü ¶óº§
+		// í•˜ë‹¨ ë¼ë²¨
+		JLabel bottom_la = new JLabel("í•™ê³¼, í•™ë²ˆ, ì´ë¦„ì„ ì…ë ¥í•˜ê³  ì¡°íšŒ ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”.");
+		// p[0] ìƒë‹¨ì˜ ë°”, p[1] ê·¸ë˜í”„ ì¶œë ¥, p[2] í•˜ë‹¨ ë¼ë²¨
 		JPanel[] p = new JPanel[3];
-		//¿­µÎ°³·Î ³ª´©¾îÁø ÆÇ³Ú
+		// ì—´ë‘ê°œë¡œ ë‚˜ëˆ„ì–´ì§„ íŒë„¬
 		JPanel[] sg = new JPanel[12];
-		JButton viewButton = new JButton("Á¶È¸");
-		// ±âÁ¸ µ¥ÀÌÅÍ Ç¥ °¡Á®¿À±â
+		JButton viewButton = new JButton("ì¡°íšŒ");
+		// ê¸°ì¡´ ë°ì´í„° í‘œ ê°€ì ¸ì˜¤ê¸°
 		DefaultTableModel targetModel;
 		JLabel newOne;
-		//¸·´ë±×·¡ÇÁ¸¦ ±×¸®´Â ÆÇ³Ú
+		// ë§‰ëŒ€ê·¸ë˜í”„ë¥¼ ê·¸ë¦¬ëŠ” íŒë„¬
 		DrawingPanel dp1, dp2, dp3, dp4;
 
 		public IndividualGradePanel() {
@@ -640,31 +649,31 @@ public class Frame2 extends JFrame {
 			this.setBackground(Color.white);
 			setLayout(new BorderLayout());
 
-			la[0] = new JLabel("ÇĞ°ú");
-			la[1] = new JLabel("ÇĞ¹ø");
-			la[2] = new JLabel("ÀÌ¸§");
-			
-			// ÆÇ³Ú »ı¼º
+			la[0] = new JLabel("í•™ê³¼");
+			la[1] = new JLabel("í•™ë²ˆ");
+			la[2] = new JLabel("ì´ë¦„");
+
+			// íŒë„¬ ìƒì„±
 			for (int i = 0; i < p.length; i++) {
 				p[i] = new JPanel();
 			}
 
-			// ÇĞ°ú ¼±ÅÃ ÄŞº¸¹Ú½º »ı¼º
+			// í•™ê³¼ ì„ íƒ ì½¤ë³´ë°•ìŠ¤ ìƒì„±
 			Major = new JComboBox<String>();
 			for (int i = 0; i < majorName.length; i++)
 				Major.addItem(majorName[i]);
 
-			// ÇĞ¹ø ¼±ÅÃ ÄŞº¸¹Ú½º »ı¼º
+			// í•™ë²ˆ ì„ íƒ ì½¤ë³´ë°•ìŠ¤ ìƒì„±
 			StudentID = new JComboBox<String>();
 			for (int i = 0; i < stNum.length; i++)
 				StudentID.addItem(stNum[i]);
-			
-			//"Á¶È¸"¹öÆ°¿¡ ¾×¼Ç¸®½º³Ê Ãß°¡
+
+			// "ì¡°íšŒ"ë²„íŠ¼ì— ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ ì¶”ê°€
 			viewButton.addActionListener(new findInfo());
 
-			newOne = new JLabel("ÇĞÁ¡ ±âÁØÀ» ¼±ÅÃÇÏÁö ¾Ê°í ÁøÇàÇÏ´Â °æ¿ì, ÇĞ»ıÀÇ µî±ŞÀÌ Àı´ëÆò°¡·Î Á¤ÇØÁö¹Ç·Î º¯°æÀ» ¿øÇÒ ½Ã Àç¼³Á¤À» ÇØÁÖ¼¼¿ä.");
+			newOne = new JLabel("í•™ì  ê¸°ì¤€ì„ ì„ íƒí•˜ì§€ ì•Šê³  ì§„í–‰í•˜ëŠ” ê²½ìš°, í•™ìƒì˜ ë“±ê¸‰ì´ ì ˆëŒ€í‰ê°€ë¡œ ì •í•´ì§€ë¯€ë¡œ ë³€ê²½ì„ ì›í•  ì‹œ ì¬ì„¤ì •ì„ í•´ì£¼ì„¸ìš”.");
 
-			// ÆÇ³Ú¿¡ ºÎÂøÇÏ±â
+			// íŒë„¬ì— ë¶€ì°©í•˜ê¸°
 			p[0].add(la[0]);
 			p[0].add(Major);
 			p[0].add(la[1]);
@@ -678,10 +687,10 @@ public class Frame2 extends JFrame {
 			add(p[2], BorderLayout.SOUTH);
 
 		}
-		
-		/***************»ı¼ºÀÚ****************/
-		// À§ »ı¼ºÀÚ¿Í ³»¿ëÀÌ °ÅÀÇ µ¿ÀÏÇØ ÁÖ¼®À» »ı·«ÇÕ´Ï´Ù.
-		public IndividualGradePanel(Object[][] row) { //ÀÎÀÚ°¡ 2Â÷¿ø ¹è¿­ÀÎ »ı¼ºÀÚ
+
+		/*************** ìƒì„±ì ****************/
+		// ìœ„ ìƒì„±ìì™€ ë‚´ìš©ì´ ê±°ì˜ ë™ì¼í•´ ì£¼ì„ì„ ìƒëµí•©ë‹ˆë‹¤.
+		public IndividualGradePanel(Object[][] row) { // ì¸ìê°€ 2ì°¨ì› ë°°ì—´ì¸ ìƒì„±ì
 
 			table = new Object[row.length][10];
 
@@ -694,10 +703,10 @@ public class Frame2 extends JFrame {
 			this.setBackground(Color.white);
 			setLayout(new BorderLayout());
 
-			la[0] = new JLabel("ÇĞ°ú");
-			la[1] = new JLabel("ÇĞ¹ø");
-			la[2] = new JLabel("ÀÌ¸§");
-			
+			la[0] = new JLabel("í•™ê³¼");
+			la[1] = new JLabel("í•™ë²ˆ");
+			la[2] = new JLabel("ì´ë¦„");
+
 			for (int i = 0; i < p.length; i++) {
 				p[i] = new JPanel();
 			}
@@ -711,7 +720,7 @@ public class Frame2 extends JFrame {
 
 			viewButton.addActionListener(new findInfo());
 
-			newOne = new JLabel("ÇĞÁ¡ ±âÁØÀ» ¼±ÅÃÇÏÁö ¾Ê°í ÁøÇàÇÏ´Â °æ¿ì, ÇĞ»ıÀÇ µî±ŞÀÌ Àı´ëÆò°¡·Î Á¤ÇØÁö¹Ç·Î º¯°æÀ» ¿øÇÒ ½Ã Àç¼³Á¤À» ÇØÁÖ¼¼¿ä.");
+			newOne = new JLabel("í•™ì  ê¸°ì¤€ì„ ì„ íƒí•˜ì§€ ì•Šê³  ì§„í–‰í•˜ëŠ” ê²½ìš°, í•™ìƒì˜ ë“±ê¸‰ì´ ì ˆëŒ€í‰ê°€ë¡œ ì •í•´ì§€ë¯€ë¡œ ë³€ê²½ì„ ì›í•  ì‹œ ì¬ì„¤ì •ì„ í•´ì£¼ì„¸ìš”.");
 
 			p[0].add(la[0]);
 			p[0].add(Major);
@@ -736,27 +745,27 @@ public class Frame2 extends JFrame {
 
 		}
 
-		// ÇĞ°ú, ÇĞ¹ø, ÀÌ¸§±îÁö Ã£¾Æ¼­ Å×ÀÌºí Ãâ·Â
+		// í•™ê³¼, í•™ë²ˆ, ì´ë¦„ê¹Œì§€ ì°¾ì•„ì„œ í…Œì´ë¸” ì¶œë ¥
 		class findInfo implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
-				//±¸¼º¿ä¼Ò ¸ğµÎ Áö¿ì±â
+				// êµ¬ì„±ìš”ì†Œ ëª¨ë‘ ì§€ìš°ê¸°
 				p[1].removeAll();
 				Object[][] find = new Object[rankTable.rowData.length][10];
-				// Å×ÀÌºí¿¡ ºóÀÚ¸®°¡ ÀÖÀ¸¸é, ¸ğµÎ Ã¤¿ì¶ó´Â °æ°í¸Ş¼¼Áö 
+				// í…Œì´ë¸”ì— ë¹ˆìë¦¬ê°€ ìˆìœ¼ë©´, ëª¨ë‘ ì±„ìš°ë¼ëŠ” ê²½ê³ ë©”ì„¸ì§€
 				for (int i = 0; i < rankTable.rowData.length; i++) {
 					if (rankTable.tablemodel.getValueAt(i, 5).equals(" ")
 							|| rankTable.tablemodel.getValueAt(i, 6).equals(" ")
 							|| rankTable.tablemodel.getValueAt(i, 7).equals(" ")
 							|| rankTable.tablemodel.getValueAt(i, 8).equals(" ")) {
-						JOptionPane.showMessageDialog(null, "¼ºÀûÀ» ¸ğµÎ Ã¤¿öÁÖ¼¼¿ä.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "ì„±ì ì„ ëª¨ë‘ ì±„ì›Œì£¼ì„¸ìš”.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 						return;
 					}
 				}
-				//´Ù½Ã Å×ÀÌºí »ı¼ºÇÏ±â
-				Object[] columnNames = { "¼®Â÷", "ÇĞ°ú", "ÇĞ¹ø", "ÀÌ¸§", "ÀüÈ­¹øÈ£", "Java", "¼ÒºĞ¼³", "ÄÄ±¸", "°´ÇÁ", "ÆòÁ¡" };
+				// ë‹¤ì‹œ í…Œì´ë¸” ìƒì„±í•˜ê¸°
+				Object[] columnNames = { "ì„ì°¨", "í•™ê³¼", "í•™ë²ˆ", "ì´ë¦„", "ì „í™”ë²ˆí˜¸", "Java", "ì†Œë¶„ì„¤", "ì»´êµ¬", "ê°í”„", "í‰ì " };
 				DefaultTableModel find_model = new DefaultTableModel(find, columnNames);
-				
-				//ÄŞº¸¹Ú½º ¼±ÅÃ½Ã °ª ÀúÀåÇÏ±â
+
+				// ì½¤ë³´ë°•ìŠ¤ ì„ íƒì‹œ ê°’ ì €ì¥í•˜ê¸°
 				int index1 = Major.getSelectedIndex();
 				String target1 = majorName[index1];
 
@@ -768,187 +777,191 @@ public class Frame2 extends JFrame {
 				String year_num;
 				int st_index = 0;
 				int addNum = 0;
-				//»ó´ëÆò°¡ÀÏ ¶§
+				// ìƒëŒ€í‰ê°€ì¼ ë•Œ
 				if (flag == true) {
-					//ÅØ½ºÆ®ÇÊµå°¡ ¸ğµÎ 0ÀÌ¸é °æ°í¸Ş¼¼Áö
+					// í…ìŠ¤íŠ¸í•„ë“œê°€ ëª¨ë‘ 0ì´ë©´ ê²½ê³ ë©”ì„¸ì§€
 					if (gradePercent[0] == 0 && gradePercent[1] == 0 && gradePercent[2] == 0) {
-						JOptionPane.showMessageDialog(null, "ÇĞÁ¡ ±âÁØÀ» ¸ÕÀú ¼³Á¤ÇØÁÖ¼¼¿ä.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "í•™ì  ê¸°ì¤€ì„ ë¨¼ì € ì„¤ì •í•´ì£¼ì„¸ìš”.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 						return;
 					}
 				}
-				//Å×ÀÌºíÀÇ ÇĞ¹ø, ÇĞ°ú¿Í ºñ±³ÇÏ¿© ÇÏ´çÇÏ´Â ÇĞ»ı ¹è¿­ÀÇ index Ã£±â
+				// í…Œì´ë¸”ì˜ í•™ë²ˆ, í•™ê³¼ì™€ ë¹„êµí•˜ì—¬ í•˜ë‹¹í•˜ëŠ” í•™ìƒ ë°°ì—´ì˜ index ì°¾ê¸°
 				for (int i = 0; i < rankTable.rowData.length; i++) {
 					year_num = ((String) rankTable.rowData[i][2]);
 					year_num = year_num.substring(2, 4);
-					//System.out.println("year_num="+year_num);
+					// System.out.println("year_num="+year_num);
 					if ((rankTable.rowData[i][1].equals(target1)) && (year_num.equals(num_target))
 							&& (rankTable.rowData[i][3].equals(target2))) {
 						find_model.addRow(rankTable.rowData[i]);
 						st_index = i;
 						addNum++;
-						//System.out.println("rankTable.rowData[i][1]: "+rankTable.rowData[i][1]+", target1: "+(target1));
-						//System.out.println("year_num: "+year_num+"target1: "+num_target);
-						//System.out.println("rankTable.rowData[i][3]: "+rankTable.rowData[i][3]+", target2"+(target2));
-						
+						// System.out.println("rankTable.rowData[i][1]: "+rankTable.rowData[i][1]+",
+						// target1: "+(target1));
+						// System.out.println("year_num: "+year_num+"target1: "+num_target);
+						// System.out.println("rankTable.rowData[i][3]: "+rankTable.rowData[i][3]+",
+						// target2"+(target2));
+
 					}
 				}
-				//ÇĞ»ıÀ» ¸øÃ£¾ÒÀ¸¸é °æ°í¸Ş¼¼Áö
+				// í•™ìƒì„ ëª»ì°¾ì•˜ìœ¼ë©´ ê²½ê³ ë©”ì„¸ì§€
 				if (addNum == 0) {
-					JOptionPane.showMessageDialog(null, "Á¶°Ç¿¡ ÇØ´çÇÏ´Â ÇĞ»ıÀÌ ¾ø½À´Ï´Ù.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” í•™ìƒì´ ì—†ìŠµë‹ˆë‹¤.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 				} else {
-					// ·¹ÀÌºíÀÇ ³»¿ë: ÇĞ»ıÀÇ Á¤º¸¿¡ ¸Â°Ô ¹Ù²Ù±â
+					// ë ˆì´ë¸”ì˜ ë‚´ìš©: í•™ìƒì˜ ì •ë³´ì— ë§ê²Œ ë°”ê¾¸ê¸°
 					String c = rankTable.rowData[st_index][1] + " " + rankTable.rowData[st_index][2] + " " + target2
-							+ "ÀÇ ¼ºÀûÀÔ´Ï´Ù.";
+							+ "ì˜ ì„±ì ì…ë‹ˆë‹¤.";
 					newOne.setText(c);
 
 					g = new Grade(rankTable.tablemodel);
-					
-					//12°³ÀÇ ÆÇ³Ú gridLayoutÀ¸·Î ±¸¼º
+
+					// 12ê°œì˜ íŒë„¬ gridLayoutìœ¼ë¡œ êµ¬ì„±
 					p[1].setLayout(new GridLayout(4, 3));
 					p[1].setBorder(BorderFactory.createLineBorder(Color.black));
-					//ÆÇ³Ú »ı¼º, ºÎÂø
+					// íŒë„¬ ìƒì„±, ë¶€ì°©
 					for (int i = 0; i < sg.length; i++) {
 						sg[i] = new JPanel();
 						sg[i].setBorder(BorderFactory.createLineBorder(Color.white));
 						p[1].add(sg[i]);
 					}
-					
+
 					if (flag == false)
 						g.setAbsoluteGrade(st_index);
 					else if (flag == true)
 						g.setGrade(st_index);
-					
-					//DrawingPanelÀÇ °´Ã¼¸¦ °ú¸ñ¸¶´Ù »ı¼º
+
+					// DrawingPanelì˜ ê°ì²´ë¥¼ ê³¼ëª©ë§ˆë‹¤ ìƒì„±
 					dp1 = new DrawingPanel();
 					sg[1].setLayout(new BoxLayout(sg[1], BoxLayout.X_AXIS));
 					sg[1].add(dp1);
 					sg[1].setOpaque(true);
 					sg[1].setVisible(true);
-					
+
 					dp2 = new DrawingPanel();
 					sg[4].setLayout(new BoxLayout(sg[4], BoxLayout.X_AXIS));
 					sg[4].add(dp2);
 					sg[4].setOpaque(true);
 					sg[4].setVisible(true);
-					
+
 					dp3 = new DrawingPanel();
 					sg[7].setLayout(new BoxLayout(sg[7], BoxLayout.X_AXIS));
 					sg[7].add(dp3);
 					sg[7].setOpaque(true);
 					sg[7].setVisible(true);
-					
+
 					dp4 = new DrawingPanel();
 					sg[10].setLayout(new BoxLayout(sg[10], BoxLayout.X_AXIS));
 					sg[10].add(dp4);
 					sg[10].setOpaque(true);
 					sg[10].setVisible(true);
 					String s;
-					
-					//(1,1)À§Ä¡ÀÇ ÆÇ³Ú
+
+					// (1,1)ìœ„ì¹˜ì˜ íŒë„¬
 					sg[0].setLayout(new GridLayout(1, 1));
 					sg[0].add(new JLabel("JAVA", SwingConstants.CENTER));
-					
-					//(1,3)À§Ä¡ÀÇ ÆÇ³Ú, Æò±Õ, ÃÖ°íÁ¡, ÃÖÇÏÁ¡, Áß°£°ª µîÀ» Å×ÀÌºí¿¡¼­ °¡Á®¿Í ¶óº§¿¡ Ãâ·Â
+
+					// (1,3)ìœ„ì¹˜ì˜ íŒë„¬, í‰ê· , ìµœê³ ì , ìµœí•˜ì , ì¤‘ê°„ê°’ ë“±ì„ í…Œì´ë¸”ì—ì„œ ê°€ì ¸ì™€ ë¼ë²¨ì— ì¶œë ¥
 					sg[2].setLayout(new BoxLayout(sg[2], BoxLayout.Y_AXIS));
-					sg[2].add((new JLabel("       ÀüÃ¼ Æò±Õ:" + g.getSub1Aver())));
-					sg[2].add(new JLabel("       ÃÖ°íÁ¡:" + Integer.toString(g.getHigh1())));
-					sg[2].add(new JLabel("       ÃÖÇÏÁ¡:" + Integer.toString(g.getLow1())));
-					sg[2].add(new JLabel("       Áß°£°ª:" + Integer.toString(g.getMid1())));
-					
-					//¹®ÀÚº¯¼ö¿¡ ÀúÀå ÈÄ Á¤¼öÇüÀ¸·Î Çüº¯È¯
+					sg[2].add((new JLabel("       ì „ì²´ í‰ê· :" + g.getSubAver(1))));
+					sg[2].add(new JLabel("       ìµœê³ ì :" + Integer.toString(g.getHigh1())));
+					sg[2].add(new JLabel("       ìµœí•˜ì :" + Integer.toString(g.getLow1())));
+					sg[2].add(new JLabel("       ì¤‘ê°„ê°’:" + Integer.toString(g.getMid1())));
+
+					// ë¬¸ìë³€ìˆ˜ì— ì €ì¥ í›„ ì •ìˆ˜í˜•ìœ¼ë¡œ í˜•ë³€í™˜
 					s = rankTable.tablemodel.getValueAt(st_index, 5) + "";
 					int num = Integer.parseInt(s);
-					sg[2].add(new JLabel("       ÇĞ»ıÀÇ Á¡¼ö:" + num));
-					//GradeÀÇ °´Ã¼ g¿¡¼­ Æò±ÕÀ» Çüº¯È¯½ÃÅ°°í ¹İ¿Ã¸² ÇØÁØ ÈÄ ÇĞ»ıÀÇ Á¡¼ö, ÃÖÇÏÁ¡, ÃÖ°íÁ¡À¸·Î drawingPanelÀÇ ¸Ş¼Òµå È£Ãâ
-					String t1 = g.getSub1Aver() + "";
-					Float t2 = Float.parseFloat(t1);
+					sg[2].add(new JLabel("       í•™ìƒì˜ ì ìˆ˜:" + num));
+					// Gradeì˜ ê°ì²´ gì—ì„œ í‰ê· ì„ í˜•ë³€í™˜ì‹œí‚¤ê³  ë°˜ì˜¬ë¦¼ í•´ì¤€ í›„ í•™ìƒì˜ ì ìˆ˜, ìµœí•˜ì , ìµœê³ ì ìœ¼ë¡œ drawingPanelì˜ ë©”ì†Œë“œ í˜¸ì¶œ
+
+					Float t2 = Float.parseFloat(g.getSubAver(1));
 					int t3 = (Math.round(t2));
 					dp1.setValue(num, g.getLow1(), t3, g.getHigh1());
 
-					g.setRank1(num);
-					sg[2].add(new JLabel("       ÇĞÁ¡:" + g.getGrade1()));
-					sg[2].add(new JLabel("       µî¼ö:" + Integer.toString(g.getRank1()) + "/" + Integer.toString(g.getTotal1()),
+					g.setRank(1, num);
+					sg[2].add(new JLabel("       í•™ì :" + g.getGrade1()));
+					sg[2].add(new JLabel(
+							"       ë“±ìˆ˜:" + Integer.toString(g.getRank(1)) + "/" + Integer.toString(g.getTotal1()),
 							SwingConstants.CENTER));
 
 					sg[3].setLayout(new GridLayout(1, 1));
-					sg[3].add(new JLabel("¼ÒÇÁÆ®¿ş¾îºĞ¼®¼³°è", SwingConstants.CENTER));
+					sg[3].add(new JLabel("ì†Œí”„íŠ¸ì›¨ì–´ë¶„ì„ì„¤ê³„", SwingConstants.CENTER));
 
 					sg[5].setLayout(new BoxLayout(sg[5], BoxLayout.Y_AXIS));
-					sg[5].add(new JLabel("       ÀüÃ¼ Æò±Õ:" + g.getSub2Aver()));
-					sg[5].add(new JLabel("       ÃÖ°íÁ¡:" + Integer.toString(g.getHigh2())));
-					sg[5].add(new JLabel("       ÃÖÇÏÁ¡:" + Integer.toString(g.getLow2())));
-					sg[5].add(new JLabel("       Áß°£°ª:" + Integer.toString(g.getMid2())));
+					sg[5].add(new JLabel("       ì „ì²´ í‰ê· :" + g.getSubAver(2)));
+					sg[5].add(new JLabel("       ìµœê³ ì :" + Integer.toString(g.getHigh2())));
+					sg[5].add(new JLabel("       ìµœí•˜ì :" + Integer.toString(g.getLow2())));
+					sg[5].add(new JLabel("       ì¤‘ê°„ê°’:" + Integer.toString(g.getMid2())));
 
 					s = rankTable.tablemodel.getValueAt(st_index, 6) + "";
 					num = Integer.parseInt(s);
-					sg[5].add(new JLabel("       ÇĞ»ıÀÇ Á¡¼ö:" + num));
+					sg[5].add(new JLabel("       í•™ìƒì˜ ì ìˆ˜:" + num));
 
-					t1 = g.getSub2Aver() + "";
-					t2 = Float.parseFloat(t1);
+					t2 = Float.parseFloat(g.getSubAver(2));
 					t3 = (Math.round(t2));
 					dp2.setValue(num, g.getLow2(), t3, g.getHigh2());
-					g.setRank2(num);
-					sg[5].add(new JLabel("       ÇĞÁ¡:" + g.getGrade2()));
-					sg[5].add(new JLabel("       µî¼ö:" + Integer.toString(g.getRank2()) + "/" + Integer.toString(g.getTotal2()),
+					g.setRank(2, num);
+					sg[5].add(new JLabel("       í•™ì :" + g.getGrade2()));
+					sg[5].add(new JLabel(
+							"       ë“±ìˆ˜:" + Integer.toString(g.getRank(2)) + "/" + Integer.toString(g.getTotal2()),
 							SwingConstants.CENTER));
 
 					sg[6].setLayout(new GridLayout(1, 1));
-					sg[6].add(new JLabel("   ÄÄÇ»ÅÍ±¸Á¶", SwingConstants.CENTER));
+					sg[6].add(new JLabel("   ì»´í“¨í„°êµ¬ì¡°", SwingConstants.CENTER));
 
 					sg[8].setLayout(new BoxLayout(sg[8], BoxLayout.Y_AXIS));
-					sg[8].add(new JLabel("       ÀüÃ¼ Æò±Õ:" + g.getSub3Aver()));
-					sg[8].add(new JLabel("       ÃÖ°íÁ¡:" + Integer.toString(g.getHigh3())));
-					sg[8].add(new JLabel("       ÃÖÇÏÁ¡:" + Integer.toString(g.getLow3())));
-					sg[8].add(new JLabel("       Áß°£°ª:" + Integer.toString(g.getMid3())));
+					sg[8].add(new JLabel("       ì „ì²´ í‰ê· :" + g.getSubAver(3)));
+					sg[8].add(new JLabel("       ìµœê³ ì :" + Integer.toString(g.getHigh3())));
+					sg[8].add(new JLabel("       ìµœí•˜ì :" + Integer.toString(g.getLow3())));
+					sg[8].add(new JLabel("       ì¤‘ê°„ê°’:" + Integer.toString(g.getMid3())));
 
 					s = rankTable.tablemodel.getValueAt(st_index, 7) + "";
 					num = Integer.parseInt(s);
-					sg[8].add(new JLabel("       ÇĞ»ıÀÇ Á¡¼ö:" + num));
-					t1 = g.getSub3Aver() + "";
-					t2 = Float.parseFloat(t1);
+					sg[8].add(new JLabel("       í•™ìƒì˜ ì ìˆ˜:" + num));
+
+					t2 = Float.parseFloat(g.getSubAver(3));
 					t3 = (Math.round(t2));
 					dp3.setValue(num, g.getLow3(), t3, g.getHigh3());
-					g.setRank3(num);
-					sg[8].add(new JLabel("       ÇĞÁ¡:" + g.getGrade3()));
-					sg[8].add(new JLabel("       µî¼ö:" + Integer.toString(g.getRank3()) + "/" + Integer.toString(g.getTotal3()),
+					g.setRank(3, num);
+					sg[8].add(new JLabel("       í•™ì :" + g.getGrade3()));
+					sg[8].add(new JLabel(
+							"       ë“±ìˆ˜:" + Integer.toString(g.getRank(3)) + "/" + Integer.toString(g.getTotal3()),
 							SwingConstants.CENTER));
 
 					sg[9].setLayout(new GridLayout(1, 1));
-					sg[9].add(new JLabel("°´Ã¼ÁöÇâ ÇÁ·Î±×·¡¹Ö", SwingConstants.CENTER));
+					sg[9].add(new JLabel("ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë°", SwingConstants.CENTER));
 
 					sg[11].setLayout(new BoxLayout(sg[11], BoxLayout.Y_AXIS));
-					sg[11].add(new JLabel("       ÀüÃ¼ Æò±Õ:" + g.getSub4Aver()));
-					sg[11].add(new JLabel("       ÃÖ°íÁ¡:" + Integer.toString(g.getHigh4())));
-					sg[11].add(new JLabel("       ÃÖÇÏÁ¡:" + Integer.toString(g.getLow4())));
-					sg[11].add(new JLabel("       Áß°£°ª:" + Integer.toString(g.getMid4())));
+					sg[11].add(new JLabel("       ì „ì²´ í‰ê· :" + g.getSubAver(4)));
+					sg[11].add(new JLabel("       ìµœê³ ì :" + Integer.toString(g.getHigh4())));
+					sg[11].add(new JLabel("       ìµœí•˜ì :" + Integer.toString(g.getLow4())));
+					sg[11].add(new JLabel("       ì¤‘ê°„ê°’:" + Integer.toString(g.getMid4())));
 					s = rankTable.tablemodel.getValueAt(st_index, 8) + "";
 					num = Integer.parseInt(s);
 
-					sg[11].add(new JLabel("       ÇĞ»ıÀÇ Á¡¼ö:" + num));
-					t1 = g.getSub4Aver() + "";
-					t2 = Float.parseFloat(t1);
+					sg[11].add(new JLabel("       í•™ìƒì˜ ì ìˆ˜:" + num));
+
+					t2 = Float.parseFloat(g.getSubAver(4));
 					t3 = (Math.round(t2));
 					dp4.setValue(num, g.getLow4(), t3, g.getHigh4());
-					g.setRank4(num);
-					sg[11].add(new JLabel("       ÇĞÁ¡:" + g.getGrade4()));
-					sg[11].add(
-							new JLabel("       µî¼ö:" + Integer.toString(g.getRank4()) + "/" + Integer.toString(g.getTotal4())));
+					g.setRank(4, num);
+					sg[11].add(new JLabel("       í•™ì :" + g.getGrade4()));
+					sg[11].add(new JLabel(
+							"       ë“±ìˆ˜:" + Integer.toString(g.getRank(4)) + "/" + Integer.toString(g.getTotal4())));
 
 					dp1.repaint();
 					dp2.repaint();
 					dp3.repaint();
 					dp4.repaint();
-					
-					//ÇĞ»ı ¼ºÀû ÀÔ·Â ÆÇ³Ú¿¡¼­ ÀúÀåÇß´ø A,B,CÀÇ ÇĞÁ¡ ºñÀ²À» ÀúÀåÇÏ´Â º¯¼ö
+
+					// í•™ìƒ ì„±ì  ì…ë ¥ íŒë„¬ì—ì„œ ì €ì¥í–ˆë˜ A,B,Cì˜ í•™ì  ë¹„ìœ¨ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 					int A = (int) (gradePercent[0] * 0.01 * rankTable.tablemodel.getRowCount());
 					int B = (int) (gradePercent[1] * 0.01 * rankTable.tablemodel.getRowCount());
 					int C = (int) (gradePercent[2] * 0.01 * rankTable.tablemodel.getRowCount());
 
 					int total_place = Integer.parseInt(rankTable.tablemodel.getValueAt(st_index, 0) + "");
-					//System.out.println("Rank1: " + total_place);
+					// System.out.println("Rank1: " + total_place);
 					String total_rank;
-					
-					if(flag==true) {
+
+					if (flag == true) {
 						if (A >= total_place)
 							total_rank = "A";
 						else if (A + B >= total_place)
@@ -957,57 +970,58 @@ public class Frame2 extends JFrame {
 							total_rank = "C";
 						else
 							total_rank = "D";
-					}else {
-						String ch_tmp=rankTable.tablemodel.getValueAt(st_index, 9)+"";
-						float chnum=(Float.parseFloat(ch_tmp));
-						int ch_num=(Math.round(chnum));
-								
+					} else {
+						String ch_tmp = rankTable.tablemodel.getValueAt(st_index, 9) + "";
+						float chnum = (Float.parseFloat(ch_tmp));
+						int ch_num = (Math.round(chnum));
+
 						if (ch_num >= 90)
 							total_rank = "A";
 						else if (ch_num < 90 && ch_num >= 80)
 							total_rank = "B";
-						else if (ch_num< 80 && ch_num >= 70)
-							total_rank= "C";
+						else if (ch_num < 80 && ch_num >= 70)
+							total_rank = "C";
 						else
 							total_rank = "D";
 
 					}
-					//ÇÏ´ÜºÎ¿¡ Æò±Õ ÇĞÁ¡, ÃÑ ÆòÁ¡ÀÇ ¼®Â÷¸¦ º¸¿©ÁÖ´Â ¶óº§
-					bottom_la.setText("Æò±Õ ÇĞÁ¡Àº " + total_rank + " ÀÌ¸ç ¼®Â÷´Â " + rankTable.tablemodel.getValueAt(st_index, 0)
-							+ "µî ÀÔ´Ï´Ù.");
+					// í•˜ë‹¨ë¶€ì— í‰ê·  í•™ì , ì´ í‰ì ì˜ ì„ì°¨ë¥¼ ë³´ì—¬ì£¼ëŠ” ë¼ë²¨
+					bottom_la.setText("í‰ê·  í•™ì ì€ " + total_rank + " ì´ë©° ì„ì°¨ëŠ” " + rankTable.tablemodel.getValueAt(st_index, 0)
+							+ "ë“± ì…ë‹ˆë‹¤.");
 
 				}
 			}
 
 		}
-		
+
 	}
-   /************************************************************************************/
-	//¸·´ë±×·¡ÇÁ ±×¸®´Â ÆÇ³Ú
-	class DrawingPanel extends JPanel { 
+
+	/************************************************************************************/
+	// ë§‰ëŒ€ê·¸ë˜í”„ ê·¸ë¦¬ëŠ” íŒë„¬
+	class DrawingPanel extends JPanel {
 
 		int score = 0;
 		int lowest = 0;
 		int average = 0;
 		int highest = 0;
 
-public void paint(Graphics g) {
-			
+		public void paint(Graphics g) {
+
 			g.clearRect(0, 0, getWidth(), getHeight());
 			g.drawLine(50, 130, 240, 130);
-			//°¡·Î¼±°ú yÃàÀÇ °ªÀ» ÀÔ·Â
+			// ê°€ë¡œì„ ê³¼ yì¶•ì˜ ê°’ì„ ì…ë ¥
 			for (int cnt = 1; cnt < 11; cnt++) {
 				if (cnt % 2 == 0) {
 					g.drawString(cnt * 10 + "", 25, 135 - 10 * cnt);
 					g.drawLine(50, 130 - 10 * cnt, 240, 130 - 10 * cnt);
 				}
 			}
-			g.drawLine(50, 20, 50, 130); // yÃà
-			g.drawString("Á¡¼ö", 75, 145);
-			g.drawString("ÃÖÇÏÁ¡", 115, 145);
-			g.drawString("Æò±Õ", 160, 145);
-			g.drawString("ÃÖ°íÁ¡", 195, 145);
-			//»öÀ» ÁöÁ¤ÇÏ°í ¸·´ë ±×¸®±â
+			g.drawLine(50, 20, 50, 130); // yì¶•
+			g.drawString("ì ìˆ˜", 75, 145);
+			g.drawString("ìµœí•˜ì ", 115, 145);
+			g.drawString("í‰ê· ", 160, 145);
+			g.drawString("ìµœê³ ì ", 195, 145);
+			// ìƒ‰ì„ ì§€ì •í•˜ê³  ë§‰ëŒ€ ê·¸ë¦¬ê¸°
 			g.setColor(Color.GREEN);
 			g.fillRect(80, 130 - score, 20, score);
 			g.setColor(Color.black);
@@ -1017,48 +1031,47 @@ public void paint(Graphics g) {
 			g.setColor(Color.red);
 			g.fillRect(200, 130 - highest, 20, highest);
 		}
-		
-		
-		//¿ÜºÎ¿¡¼­ °ªÀ» ¹Ş¾Æ¼­ ÀúÀåÇÏ´Â ¸Ş¼Òµå
+
+		// ì™¸ë¶€ì—ì„œ ê°’ì„ ë°›ì•„ì„œ ì €ì¥í•˜ëŠ” ë©”ì†Œë“œ
 		void setValue(int score, int lowest, int average, int highest) {
 			this.score = score;
 			this.lowest = lowest;
 			this.average = average;
 			this.highest = highest;
 
-			repaint(); //´Ù½Ã±×¸®±â
+			repaint(); // ë‹¤ì‹œê·¸ë¦¬ê¸°
 		}
 
 	}
 
 	/**********************************************************************************/
-	// °­ÀÇº° ¼¼ºÎÁ¶È¸ ÆÇ³Ú
+	// ê°•ì˜ë³„ ì„¸ë¶€ì¡°íšŒ íŒë„¬
 	class ChartByLecture extends JPanel {
-		//°ú¸ñº° ±âÁØ¿¡ µû¸¥ ÇĞ»ı¼ö ÀúÀå, ÆÄÀÌÂ÷Æ®¿¡ »ç¿ëµÊ
+		// ê³¼ëª©ë³„ ê¸°ì¤€ì— ë”°ë¥¸ í•™ìƒìˆ˜ ì €ì¥, íŒŒì´ì°¨íŠ¸ì— ì‚¬ìš©ë¨
 		int[] gradeData = { 0, 0, 0, 0 };
 		int[] scoreData = { 0, 0, 0, 0 };
 		int[] majorData = { 0, 0, 0, 0 };
-		//°¢À» ÀúÀåÇÒ ¹è¿­
+		// ê°ì„ ì €ì¥í•  ë°°ì—´
 		int[] arcAngle = new int[4];
 		int[] arcAngle2 = new int[4];
 		int[] arcAngle3 = new int[4];
 		private Color[] color = { Color.RED, Color.BLUE, Color.green, Color.ORANGE };
-		//¶óº§¿¡ Ãâ·ÂÇÑ ¹®ÀÚ¿­µé
+		// ë¼ë²¨ì— ì¶œë ¥í•œ ë¬¸ìì—´ë“¤
 		private String[] itemName = { "14", "15", "16", "17" };
 		private String[] itemName2 = { "under 60", "70", "80", "90" };
 		private String[] itemName3 = { "Com&IT", "Math", "Stat", "Info" };
-		Font f = new Font("ÇÔÃÊ·Òµ¸¿ò", Font.PLAIN, 15);
-		JLabel[] la = { new JLabel("°­ÀÇ¸í   "), // 0
+		Font f = new Font("í•¨ì´ˆë¡¬ë‹ì›€", Font.PLAIN, 15);
+		JLabel[] la = { new JLabel("ê°•ì˜ëª…   "), // 0
 				new JLabel("Rate by ID"), // 1
 				new JLabel("Rate by Score"), // 2
 				new JLabel("Rate by Major"), // 3
-				new JLabel("¶óº§ ±Û¾¾ Å©±â Á¶Àı")// 4
+				new JLabel("ë¼ë²¨ ê¸€ì”¨ í¬ê¸° ì¡°ì ˆ")// 4
 		};
 
-		// label ±Û¾¾Å©±â Á¶Àı ½½¶óÀÌ´õ
+		// label ê¸€ì”¨í¬ê¸° ì¡°ì ˆ ìŠ¬ë¼ì´ë”
 		JSlider slider = new JSlider(JSlider.HORIZONTAL, 10, 20, 15);
 		JComboBox cb = new JComboBox();
-		String[] majorName = { "Java", "¼ÒºĞ¼³", "ÄÄÇ»ÅÍ ±¸Á¶", "°´ÇÁ" };
+		String[] majorName = { "Java", "ì†Œë¶„ì„¤", "ì»´í“¨í„° êµ¬ì¡°", "ê°í”„" };
 		int size;
 		Object table[][];
 		JPanel p0 = new JPanel();
@@ -1080,16 +1093,16 @@ public void paint(Graphics g) {
 			setLayout(new BorderLayout());
 			setFont(f);
 
-			// ÆÇ³Ú »ı¼º
+			// íŒë„¬ ìƒì„±
 
 			/********* p[0] *********/
-			// ÆÇ³Ú¿¡ ´Ù¸¥ ¿ä¼Òµé ºÙÀÌ±â
+			// íŒë„¬ì— ë‹¤ë¥¸ ìš”ì†Œë“¤ ë¶™ì´ê¸°
 			for (int i = 0; i < majorName.length; i++)
 				cb.addItem(majorName[i]);
 
 			p0.add(la[0]);
 			p0.add(cb);
-			//°­ÀÇ¸í ÄŞº¸¹Ú½º¿¡ ¾×¼Ç¸®½º³Ê ºÎÂø, ¼ºÀûÀÌ ¸ğµÎ Ã¤¿öÁ®ÀÖÁö ¾ÊÀ¸¸é °æ°í¸¦ ¶ç¿ò
+			// ê°•ì˜ëª… ì½¤ë³´ë°•ìŠ¤ì— ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ ë¶€ì°©, ì„±ì ì´ ëª¨ë‘ ì±„ì›Œì ¸ìˆì§€ ì•Šìœ¼ë©´ ê²½ê³ ë¥¼ ë„ì›€
 			cb.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -1099,19 +1112,19 @@ public void paint(Graphics g) {
 								|| rankTable.tablemodel.getValueAt(i, 6).equals(" ")
 								|| rankTable.tablemodel.getValueAt(i, 7).equals(" ")
 								|| rankTable.tablemodel.getValueAt(i, 8).equals(" ")) {
-							JOptionPane.showMessageDialog(null, "¼ºÀûÀ» ¸ğµÎ Ã¤¿öÁÖ¼¼¿ä.", "°æ°í", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null, "ì„±ì ì„ ëª¨ë‘ ì±„ì›Œì£¼ì„¸ìš”.", "ê²½ê³ ", JOptionPane.WARNING_MESSAGE);
 							return;
 						}
 					}
 
 					int index = cb.getSelectedIndex();
-					drawChart(rankTable.tablemodel, index + 5,chartPanel);
-					
+					drawChart(rankTable.tablemodel, index + 5, chartPanel);
+
 				}
 
 			});
 			/********* p[1] *********/
-			// Â÷Æ® Ãâ·Â
+			// ì°¨íŠ¸ ì¶œë ¥
 			chartPanel = new ChartPanel();
 			p1.setLayout(new FlowLayout());
 			p1.add(chartPanel);
@@ -1121,17 +1134,17 @@ public void paint(Graphics g) {
 			p2.add(la[4]);
 			p2.add(slider);
 
-			// ÆÇ³Ú ºÎÂø
+			// íŒë„¬ ë¶€ì°©
 			add(p0, BorderLayout.NORTH);
 			add(chartPanel, BorderLayout.CENTER);
 			add(p2, BorderLayout.SOUTH);
 
-			// slider ¸®½º³Ê -> ÆùÆ® Á¶Àı
+			// slider ë¦¬ìŠ¤ë„ˆ -> í°íŠ¸ ì¡°ì ˆ
 			slider.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent e) {
 					size = slider.getValue();
-					chartPanel.setFont(new Font("µ¸¿òÃ¼",Font.PLAIN,size));
-					
+					chartPanel.setFont(new Font("ë‹ì›€ì²´", Font.PLAIN, size));
+
 					for (int i = 0; i < la.length; i++) {
 						chartPanel.repaint();
 					}
@@ -1139,11 +1152,11 @@ public void paint(Graphics g) {
 			});
 		}
 
-		//Å×ÀÌºí°ú ÀÎµ¦½º¸¦ ÀÎÀÚ·Î ÁÖ°í ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é ÆÄÀÌÂ÷Æ®°¡ ±×·ÁÁü
-		private void drawChart(DefaultTableModel table, int index,ChartPanel chartPanel) {
+		// í…Œì´ë¸”ê³¼ ì¸ë±ìŠ¤ë¥¼ ì¸ìë¡œ ì£¼ê³  ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ íŒŒì´ì°¨íŠ¸ê°€ ê·¸ë ¤ì§
+		private void drawChart(DefaultTableModel table, int index, ChartPanel chartPanel) {
 			int[] sum = { 0, 0, 0 };
 			String year_num, score_num, major;
-			this.chartPanel=chartPanel;
+			this.chartPanel = chartPanel;
 			for (int i = 0; i < gradeData.length; i++) {
 				gradeData[i] = 0;
 				scoreData[i] = 0;
@@ -1152,13 +1165,13 @@ public void paint(Graphics g) {
 				arcAngle[i] = 0;
 				arcAngle2[i] = 0;
 				arcAngle3[i] = 0;
-			} // ÃÊ±âÈ­
+			} // ì´ˆê¸°í™”
 
-			//ÀüÃ¼ÇĞ¹øÁß µÎ ¼ıÀÚ¸¦ ÃßÃâÇÏ¿© ºñ±³ (¿¹¸¦µé¾î 20171000 ÇĞ¹øÀÌ¸é 17 ÃßÃâ)
+			// ì „ì²´í•™ë²ˆì¤‘ ë‘ ìˆ«ìë¥¼ ì¶”ì¶œí•˜ì—¬ ë¹„êµ (ì˜ˆë¥¼ë“¤ì–´ 20171000 í•™ë²ˆì´ë©´ 17 ì¶”ì¶œ)
 			for (int j = 0; j < table.getRowCount(); j++) {
 				year_num = (table.getValueAt(j, 2)) + "";
 				year_num = year_num.substring(2, 4);
-				//ÇĞ¹ø¿¡ µû¶ó ÇĞ»ı ¼ö ¼¼±â
+				// í•™ë²ˆì— ë”°ë¼ í•™ìƒ ìˆ˜ ì„¸ê¸°
 				switch (year_num) {
 				case "14":
 					++gradeData[0];
@@ -1180,30 +1193,30 @@ public void paint(Graphics g) {
 
 			for (int j = 0; j < table.getRowCount(); j++) {
 				score_num = (table.getValueAt(j, index)) + "";
-				
-				//System.out.println("score_num="+score_num+"");
+
+				// System.out.println("score_num="+score_num+"");
 				if (score_num.length() == 2) {
 					score_num = score_num.substring(0, 1);
-					//System.out.println("score_num.substring(0, 1)"+score_num+"");
+					// System.out.println("score_num.substring(0, 1)"+score_num+"");
 				} else if (score_num.length() == 3) {
 					score_num = score_num.substring(0, 2);
-					//System.out.println("score_num.substring(0, 2)="+score_num+"");
+					// System.out.println("score_num.substring(0, 2)="+score_num+"");
 				}
-				
-				//Á¡¼ö¿¡ µû¶ó ÇĞ»ı ¼ö ¼¼±â
+
+				// ì ìˆ˜ì— ë”°ë¼ í•™ìƒ ìˆ˜ ì„¸ê¸°
 				switch (score_num) {
 				case "0":
-					
+
 				case "1":
-					
+
 				case "2":
-					
+
 				case "3":
-					
+
 				case "4":
-					
+
 				case "5":
-				
+
 				case "6":
 					++scoreData[0];
 					break;
@@ -1226,7 +1239,7 @@ public void paint(Graphics g) {
 
 			for (int j = 0; j < table.getRowCount(); j++) {
 				major = (table.getValueAt(j, 1)) + "";
-				//Àü°ø¿¡ µû¶ó ÇĞ»ı ¼ö ¼¼±â
+				// ì „ê³µì— ë”°ë¼ í•™ìƒ ìˆ˜ ì„¸ê¸°
 				switch (major) {
 				case "IT":
 				case "computer":
@@ -1247,30 +1260,26 @@ public void paint(Graphics g) {
 
 			}
 
-			//°¢ µ¥ÀÌÅÍÀÇ ÇØ´ç ±âÁØÀÇ ÇÕ°è
+			// ê° ë°ì´í„°ì˜ í•´ë‹¹ ê¸°ì¤€ì˜ í•©ê³„
 			for (int i = 0; i < gradeData.length; i++) {
 				sum[0] += gradeData[i];
 				sum[1] += scoreData[i];
 				sum[2] += majorData[i];
 
 			}
-			//°¢ ±âÁØ¸¶´Ù(ÇĞ¹ø, Á¡¼ö, Àü°ø) ÀüÃ¼ Áß ¾ó¸¶³ª Â÷ÁöÇÏ´ÂÁö 360µµ¿¡¼­ Â÷ÁöÇÏ´Â ºñÀ² °è»ê
+			// ê° ê¸°ì¤€ë§ˆë‹¤(í•™ë²ˆ, ì ìˆ˜, ì „ê³µ) ì „ì²´ ì¤‘ ì–¼ë§ˆë‚˜ ì°¨ì§€í•˜ëŠ”ì§€ 360ë„ì—ì„œ ì°¨ì§€í•˜ëŠ” ë¹„ìœ¨ ê³„ì‚°
 			for (int i = 0; i < gradeData.length; i++) {
 				arcAngle[i] = (int) Math.round((double) gradeData[i] / (double) sum[0] * 360);
 				arcAngle2[i] = (int) Math.round((double) scoreData[i] / (double) sum[1] * 360);
 				arcAngle3[i] = (int) Math.round((double) majorData[i] / (double) sum[2] * 360);
 			}
 
-			
+			chartPanel.repaint(); // ë‹¤ì‹œê·¸ë¦¬ê¸°
 
-		
-
-			chartPanel.repaint(); //´Ù½Ã±×¸®±â
-			
 		}
 
 		class ChartPanel extends JComponent {
-			
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -1278,30 +1287,36 @@ public void paint(Graphics g) {
 				int startAngle2 = 0;
 				int startAngle3 = 0;
 
-				g.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15 + size / 2));
+				g.setFont(new Font("ë‹ì›€ì²´", Font.PLAIN, 15 + size / 2));
 
 				g.drawString(la[1].getText(), 130, 40);
 				g.drawString(la[2].getText(), 330, 40);
-				g.drawString(la[3].getText(),530, 40);
+				g.drawString(la[3].getText(), 530, 40);
 
-				// ¶óº§ Ãâ·Â
+				// ë¼ë²¨ ì¶œë ¥
 				for (int i = 0; i < 4; i++) {
 					g.setColor(color[i]);
-					//System.out.println("arcAngle[i]: "+arcAngle[i]+", Math.round(arcAngle[i] * 100. / 360.): "+Math.round(arcAngle[i] * 100. / 360.));
-					g.drawString(itemName[i] + "ÇĞ¹ø: " + Math.round(arcAngle[i] * 100. / 360.) + "%", 130, 70 + 20 * i);
-					g.drawString(itemName2[i] + "Á¡´ë: " + Math.round(arcAngle2[i] * 100. / 360.) + "%", 330, 70 + 20 * i);
-					g.drawString(itemName3[i] + "ÇĞ°ú: " + Math.round(arcAngle3[i] * 100. / 360.) + "%", 530, 70 + 20 * i);
-					//System.out.println(itemName[i] + " " + Math.round(arcAngle[i] * 100. / 360.) + "%");
-					//System.out.println(itemName2[i] + " " + Math.round(arcAngle2[i] * 100. / 360.) + "%");
-					//System.out.println(itemName3[i] + " " + Math.round(arcAngle3[i] * 100. / 360.) + "%");
+					// System.out.println("arcAngle[i]: "+arcAngle[i]+", Math.round(arcAngle[i] *
+					// 100. / 360.): "+Math.round(arcAngle[i] * 100. / 360.));
+					g.drawString(itemName[i] + "í•™ë²ˆ: " + Math.round(arcAngle[i] * 100. / 360.) + "%", 130, 70 + 20 * i);
+					g.drawString(itemName2[i] + "ì ëŒ€: " + Math.round(arcAngle2[i] * 100. / 360.) + "%", 330,
+							70 + 20 * i);
+					g.drawString(itemName3[i] + "í•™ê³¼: " + Math.round(arcAngle3[i] * 100. / 360.) + "%", 530,
+							70 + 20 * i);
+					// System.out.println(itemName[i] + " " + Math.round(arcAngle[i] * 100. / 360.)
+					// + "%");
+					// System.out.println(itemName2[i] + " " + Math.round(arcAngle2[i] * 100. /
+					// 360.) + "%");
+					// System.out.println(itemName3[i] + " " + Math.round(arcAngle3[i] * 100. /
+					// 360.) + "%");
 				}
-				
-				//ÆÄÀÌÂ÷Æ® ±×¸®±â
+
+				// íŒŒì´ì°¨íŠ¸ ê·¸ë¦¬ê¸°
 				for (int i = 0; i < 4; i++) {
-					//System.out.println("painting");
-					//System.out.println("startAngle: "+startAngle);
-					//System.out.println("startAngle2: "+startAngle2);
-					//System.out.println("startAngle3: "+startAngle3);
+					// System.out.println("painting");
+					// System.out.println("startAngle: "+startAngle);
+					// System.out.println("startAngle2: "+startAngle2);
+					// System.out.println("startAngle3: "+startAngle3);
 					g.setColor(color[i]);
 					g.fillArc(60, 190, 200, 200, startAngle, arcAngle[i]);
 					g.fillArc(280, 190, 200, 200, startAngle2, arcAngle2[i]);
@@ -1310,128 +1325,73 @@ public void paint(Graphics g) {
 					startAngle2 = startAngle2 + arcAngle2[i];
 					startAngle3 = startAngle3 + arcAngle3[i];
 				}
-				
-				
+
 			}
 		}
 
 	}
 
 	/**********************************************************************************/
-	//¼ºÀûÀ» Ã³¸®ÇÏ´Â Å¬·¡½º
+	// ì„±ì ì„ ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
 	public class Grade {
-		//°ú¸ñÀÇ Æò±ÕÀÌ ÀúÀåµÉ º¯¼ö
-		private float sub1Aver, sub2Aver, sub3Aver, sub4Aver;
-		//ÃÖ°íÁ¡ º¯¼ö
-		private int High1, High2, High3, High4;
-		//ÃÖÇÏÁ¡ º¯¼ö
-		private int Low1, Low2, Low3, Low4;
-		//Áß°£°ª º¯¼ö
-		private int Mid1, Mid2, Mid3, Mid4;
-		//µî¼ö º¯¼ö
-		private int rank1, rank2, rank3, rank4;
-		
-		private int total1, total2, total3, total4;
-		//"A","B","C" ¿Í°°Àº ÇĞÁ¡ÀÌ ÀúÀåµÉ º¯¼ö
-		private String grade1, grade2, grade3, grade4;
+		// ê³¼ëª©ì˜ í‰ê· ì´ ì €ì¥ë  4ê°œ ë³€ìˆ˜ë¥¼ ìƒì„±í•´ ë°°ì—´ ì²˜ë¦¬
+		private float subjectAverage[] = new float[4];
+		// ìµœê³ ì  ë³€ìˆ˜
+		private int High[] = new int[4];
+		// ìµœí•˜ì  ë³€ìˆ˜
+		private int Low[] = new int[4];
+		// ì¤‘ê°„ê°’ ë³€ìˆ˜
+		private int Mid[] = new int[4];
+		// ë“±ìˆ˜ ë³€ìˆ˜
+		private int rank[] = new int[4];
 
-		private int[][] gradeArray1;
-		private int[][] gradeArray2;
-		private int[][] gradeArray3;
-		private int[][] gradeArray4;
+		private int total[] = new int[4];
+		// "A","B","C" ì™€ê°™ì€ í•™ì ì´ ì €ì¥ë  ë³€ìˆ˜
+		private String saveGrade[] = new String[4];
 
-		String columnNames[] = { "¼®Â÷", "ÇĞ°ú", "ÇĞ¹ø", "ÀÌ¸§", "ÀüÈ­¹øÈ£", "Java", "¼ÒºĞ¼³", "ÄÄ±¸", "°´ÇÁ", "ÆòÁ¡" };
+		private int[][] gradeArray = new int[4][];
+
+		String columnNames[] = { "ì„ì°¨", "í•™ê³¼", "í•™ë²ˆ", "ì´ë¦„", "ì „í™”ë²ˆí˜¸", "Java", "ì†Œë¶„ì„¤", "ì»´êµ¬", "ê°í”„", "í‰ì " };
 		QuickSort quick = new QuickSort();
 
 		public Grade(DefaultTableModel targetModel) {
 
 			// JTable jtable=new JTable(targetModel);
 
-			setSub1Aver(targetModel);
-			setSub2Aver(targetModel);
-			setSub3Aver(targetModel);
-			setSub4Aver(targetModel);
+			setSubjectAverage(targetModel);
 
 			setGradeArray1(targetModel);
 			setGradeArray2(targetModel);
 			setGradeArray3(targetModel);
-		try {	setGradeArray4(targetModel);}catch(NumberFormatException e) {}
-
-		}
-
-		public int getTotal1() {
-			return total1;
-		}
-
-		public int getTotal2() {
-			return total2;
-		}
-
-		public int getTotal3() {
-			return total3;
-		}
-
-		public int getTotal4() {
-			return total4;
-		}
-		
-		//µî¼ö °¡Á®¿À±â
-		public void setRank1(int score) {
-			for (int i = getTotal1(); i >= 1; i--) {
-				if (score == gradeArray1[i - 1][0]) {
-					this.rank1 = gradeArray1[i - 1][1];
-					break;
-				}
+			try {
+				setGradeArray4(targetModel);
+			} catch (NumberFormatException e) {
 			}
+
 		}
 
-		public int getRank1() {
-			return rank1;
+		public int getTotal(int num) {
+			return total[num-1];
 		}
 
-		public void setRank2(int score) {
-			for (int i = getTotal2(); i >= 1; i--) {
-				if (score == gradeArray2[i - 1][0]) {
-					this.rank2 = gradeArray2[i - 1][1];
-					break;
+		// ë“±ìˆ˜ ê°€ì ¸ì˜¤ê¸°
+		public void setRank(int num, int score) {
+				for (int i = getTotal(num); i >= 1; i--) {
+					if (score == gradeArray2[i - 1][0]) {
+						this.rank[num-1] = gradeArray2[i - 1][1];
+						break;
+					}
 				}
-			}
 		}
 
-		public int getRank2() {
-			return rank2;
+		public int getRank(int num) {
+			return rank[num-1];
 		}
 
-		public void setRank3(int score) {
-			for (int i = getTotal3(); i >= 1; i--) {
-				if (score == gradeArray3[i - 1][0]) {
-					this.rank3 = gradeArray3[i - 1][1];
-					break;
-				}
-			}
-		}
+		// ë°°ì—´ì— ê°’ì„ ì €ì¥ í›„ ìµœê³ ì , ìµœí•˜ì , ì¤‘ê°„ê°’ ê³„ì‚°
+		public void setGradeArray(int num, DefaultTableModel targetModel) {
 
-		public int getRank3() {
-			return rank3;
-		}
-
-		public void setRank4(int score) {
-			for (int i = getTotal4(); i >= 1; i--) {
-				if (score == gradeArray4[i - 1][0]) {
-					this.rank4 = gradeArray4[i - 1][1];
-					break;
-				}
-			}
-		}
-
-		public int getRank4() {
-			return rank4;
-		}
-
-		//¹è¿­¿¡ °ªÀ» ÀúÀå ÈÄ ÃÖ°íÁ¡, ÃÖÇÏÁ¡, Áß°£°ª °è»ê
-		public void setGradeArray1(DefaultTableModel targetModel) {
-
-			int[] gradeArray1 = new int[targetModel.getRowCount()];
+			gradeArray[num-1] = new int[targetModel.getRowCount()];
 			int remove = 0;
 			int[] index = new int[20];
 			for (int i = 0; i < targetModel.getRowCount(); i++) {
@@ -1442,16 +1402,15 @@ public void paint(Graphics g) {
 					remove++;
 					continue;
 				}
-				gradeArray1[i] = (Integer.parseInt(targetModel.getValueAt(i, 5).toString()));
+				gradeArray[num-1][i] = (Integer.parseInt(targetModel.getValueAt(i, i+5).toString()));
 			}
-			quick.sort(gradeArray1, 0, gradeArray1.length - 1);
+			quick.sort(gradeArray[num-1], 0, gradeArray[num-1].length - 1);
 
 			// System.out.print(gradeArray1[4]);
 
-			this.gradeArray1 = new int[targetModel.getRowCount() - remove][2];
+			this.gradeArray = new int[targetModel.getRowCount() - remove][2];
 
-			int total1 = gradeArray1.length;
-			this.total1 = total1;
+			this.total[num-1] = gradeArray[num-1].length;
 
 			int disregard = 0;
 			int change_index;
@@ -1473,7 +1432,6 @@ public void paint(Graphics g) {
 					this.gradeArray1[i][1] = total1--;
 				}
 
-				
 			}
 
 			this.High1 = this.gradeArray1[gradeArray1.length - remove - 1][0];
@@ -1485,20 +1443,10 @@ public void paint(Graphics g) {
 
 		}
 
-		public int getHigh1() {
-			return High1;
-		}
-
-		public int getLow1() {
-			return Low1;
-		}
-
-		public int getMid1() {
-			return Mid1;
-		}
+		
 
 		public String getGradeArray1() {
-			
+
 			return gradeArray1[0] + "";
 		}
 
@@ -1541,8 +1489,8 @@ public void paint(Graphics g) {
 				} else {
 					this.gradeArray2[i][0] = gradeArray2[i];
 					this.gradeArray2[i][1] = total2--;
-				} // µî¼ö
-					
+				} // ë“±ìˆ˜
+
 			}
 
 			this.High2 = this.gradeArray2[gradeArray2.length - 1 - remove][0];
@@ -1557,19 +1505,7 @@ public void paint(Graphics g) {
 		public String getGradeArray2() {
 			return gradeArray2[0] + "";
 		}
-
-		public int getHigh2() {
-			return High2;
-		}
-
-		public int getLow2() {
-			return Low2;
-		}
-
-		public int getMid2() {
-			return Mid2;
-		}
-
+		
 		public void setGradeArray3(DefaultTableModel targetModel) {
 
 			int[] gradeArray3 = new int[targetModel.getRowCount()];
@@ -1626,18 +1562,7 @@ public void paint(Graphics g) {
 
 			return gradeArray3[0] + "";
 		}
-
-		public int getHigh3() {
-			return High3;
-		}
-
-		public int getLow3() {
-			return Low3;
-		}
-
-		public int getMid3() {
-			return Mid3;
-		}
+		
 
 		public void setGradeArray4(DefaultTableModel targetModel) {
 
@@ -1651,7 +1576,10 @@ public void paint(Graphics g) {
 					remove++;
 					continue;
 				}
-			try {	gradeArray4[i] = (Integer.parseInt(targetModel.getValueAt(i, 8).toString()));}catch(NumberFormatException e) {}
+				try {
+					gradeArray4[i] = (Integer.parseInt(targetModel.getValueAt(i, 8).toString()));
+				} catch (NumberFormatException e) {
+				}
 			}
 			quick.sort(gradeArray4, 0, gradeArray4.length - 1);
 
@@ -1690,242 +1618,104 @@ public void paint(Graphics g) {
 		}
 
 		public String getGradeArray4() {
-			
+
 			return gradeArray4[0] + "";
 		}
-
-		public int getHigh4() {
-			return High4;
+		public int getHigh(int num) {
+			return High[num-1];
 		}
 
-		public int getLow4() {
-			return Low4;
+		public int getLow(int num) {
+			return Low[num-1];
 		}
 
-		public int getMid4() {
-			return Mid4;
+		public int getMid(int num) {
+			return Mid[num-1];
 		}
 
-		//°ªÀ» Å×ÀÌºí¿¡¼­ °¡Á®¿Í Çüº¯È¯ ÈÄ Æò±Õ ±¸ÇÏ°í set
-		public void setSub1Aver(DefaultTableModel targetModel) {
-			float sum = 0;
-			int remove = 0;
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				String s = targetModel.getValueAt(i, 5) + "";
-				if (s.equals(" ")) {
-					remove++;
-					return;
+		// ê°’ì„ í…Œì´ë¸”ì—ì„œ ê°€ì ¸ì™€ í˜•ë³€í™˜ í›„ í‰ê·  êµ¬í•˜ê³  set
+		// ì“¸ë°ì—†ì´ ê°™ì€ í•¨ìˆ˜ 4ê°œê°€ ì¤‘ë³µë˜ì–´ ë°°ì—´ì²˜ë¦¬í•´ì„œ ê³¼ëª© 4ê°œ í•œ ë²ˆì— ì²˜ë¦¬
+
+		public void setSubjectAverage(DefaultTableModel targetModel) {
+			for (int j = 0; j < subjectAverage.length; j++) {
+				float sum = 0;
+				int remove = 0;
+				for (int i = 0; i < targetModel.getRowCount(); i++) {
+					int row = 5 + j;
+					String s = targetModel.getValueAt(i, row) + "";
+					if (s.equals(" ")) {
+						remove++;
+						return;
+					}
+					sum = sum + (Float.parseFloat(s));
 				}
-				sum = sum + (Float.parseFloat(s));
-
+				this.subjectAverage[j] = (float) (sum / (targetModel.getRowCount() - remove));
 			}
-			float aver1 = sum / (targetModel.getRowCount() - remove);
-			
-			this.sub1Aver = aver1;
 		}
 
-
-		public void setSub2Aver(DefaultTableModel targetModel) {
-			float sum = 0;
-			int remove = 0;
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				String s = targetModel.getValueAt(i, 6) + "";
-				if (s.equals(" ")) {
-					remove++;
-					return;
-				}
-				sum = sum + (Float.parseFloat(s));
-			}
-			float aver2 = sum / (targetModel.getRowCount() - remove);
-			// System.out.println(aver2);
-			this.sub2Aver = aver2;
+		// í‰ê·  ë°˜í™˜í•´ì£¼ëŠ” í•¨ìˆ˜
+		public String getSubAver(int num) {
+			return subjectAverage[num-1] + "";
 		}
 
-
-		public void setSub3Aver(DefaultTableModel targetModel) {
-			float sum = 0;
-			int remove = 0;
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				String s = targetModel.getValueAt(i, 7) + "";
-				if (s.equals(" ")) {
-					remove++;
-					return;
-				}
-				sum = sum + (Float.parseFloat(s));
-			}
-			float aver3 = sum / (targetModel.getRowCount() - remove);
-			// System.out.println(aver3);
-			this.sub3Aver = aver3;
-		}
-
-	
-		public void setSub4Aver(DefaultTableModel targetModel) {
-			float sum = 0;
-			int remove = 0;
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				String s = targetModel.getValueAt(i, 8) + "";
-				if (s.equals(" ")) {
-					remove++;
-					return;
-				}
-				sum = sum + (Float.parseFloat(s));
-			}
-			float aver4 = sum / (targetModel.getRowCount() - remove);
-			// System.out.println(aver4);
-			this.sub4Aver = aver4;
-		}
-		//Æò±Õ ¹İÈ¯ÇØÁÖ´Â ÇÔ¼ö
-		public String getSub1Aver() {
-			return sub1Aver + "";
-		}
-		public String getSub2Aver() {
-			return sub2Aver + "";
-		}
-		public String getSub3Aver() {
-			return sub3Aver + "";
-		}
-		public String getSub4Aver() {
-			return sub4Aver + "";
-		}
-
-		//Á¡¼ö¿¡ µû¸¥ ÇĞÁ¡ °è»ê -> Àı´ëÆò°¡ 
+		// ì ìˆ˜ì— ë”°ë¥¸ í•™ì  ê³„ì‚° -> ì ˆëŒ€í‰ê°€
 		void setAbsoluteGrade(int index) {
-			
-			int rows = rankTable.tablemodel.getRowCount();
+			String gradeCalculation[] = new String[4];
+			int intGrade[] = new int[4];
 
-			String g1 = rankTable.tablemodel.getValueAt(index, 5) + "";
-			String g2 = rankTable.tablemodel.getValueAt(index, 6) + "";
-			String g3 = rankTable.tablemodel.getValueAt(index, 7) + "";
-			String g4 = rankTable.tablemodel.getValueAt(index, 8) + "";
+			for (int i = 0; i < gradeCalculation.length; i++) {
+				gradeCalculation[i] = rankTable.tablemodel.getValueAt(index, i + 5) + "";
+				intGrade[i] = Integer.parseInt(gradeCalculation[i]);
 
-			int int_g1 = Integer.parseInt(g1);
-			int int_g2 = Integer.parseInt(g2);
-			int int_g3 = Integer.parseInt(g3);
-			int int_g4 = Integer.parseInt(g4);
-
-			if (int_g1 >= 90)
-				grade1 = "A";
-			else if (int_g1 < 90 && int_g1 >= 80)
-				grade1 = "B";
-			else if (int_g1 < 80 && int_g1 >= 70)
-				grade1 = "C";
-			else
-				grade1 = "D";
-
-			if (int_g2 >= 90)
-				grade2 = "A";
-			else if (int_g2 < 90 && int_g2 >= 80)
-				grade2 = "B";
-			else if (int_g2 < 80 && int_g2 >= 70)
-				grade2 = "C";
-			else
-				grade2 = "D";
-
-			if (int_g3 >= 90)
-				grade3 = "A";
-			else if (int_g3 < 90 && int_g3 >= 80)
-				grade3 = "B";
-			else if (int_g3 < 80 && int_g3 >= 70)
-				grade3 = "C";
-			else
-				grade3 = "D";
-
-			if (int_g4 >= 90)
-				grade4 = "A";
-			else if (int_g4 < 90 && int_g4 >= 80)
-				grade4 = "B";
-			else if (int_g4 < 80 && int_g4 >= 70)
-				grade4 = "C";
-			else
-				grade4 = "D";
-
+				if (intGrade[i] >= 90)
+					saveGrade[i] = "A";
+				else if (intGrade[i] < 90 && intGrade[i] >= 80)
+					saveGrade[i] = "B";
+				else if (intGrade[i] < 80 && intGrade[i] >= 70)
+					saveGrade[i] = "C";
+				else
+					saveGrade[i] = "D";
+			}
 		}
-		//Á¡¼ö¿¡ µû¸¥ ÇĞÁ¡ °è»ê -> »ó´ëÆò°¡
-		void setGrade(int index) { // ÇĞ»ı ¹è¿­ÀÇ ÇàÀÇ index
+
+		// ì ìˆ˜ì— ë”°ë¥¸ í•™ì  ê³„ì‚° -> ìƒëŒ€í‰ê°€
+		void setGrade(int index) { // í•™ìƒ ë°°ì—´ì˜ í–‰ì˜ index
 			int rows = rankTable.tablemodel.getRowCount();
 
-			String g1 = rankTable.tablemodel.getValueAt(index, 5) + "";
-			String g2 = rankTable.tablemodel.getValueAt(index, 6) + "";
-			String g3 = rankTable.tablemodel.getValueAt(index, 7) + "";
-			String g4 = rankTable.tablemodel.getValueAt(index, 8) + "";
-
-			int int_g1 = Integer.parseInt(g1);
-			int int_g2 = Integer.parseInt(g2);
-			int int_g3 = Integer.parseInt(g3);
-			int int_g4 = Integer.parseInt(g4);
-
-			int place = 0;
-
-			// A,B,CÇĞÁ¡ À» ¹Ş´Â ÇĞ»ı¼ö, ³ª¸ÓÁö´Â D
+			// A,B,Cí•™ì  ì„ ë°›ëŠ” í•™ìƒìˆ˜, ë‚˜ë¨¸ì§€ëŠ” D
 			int As = (int) (gradePercent[0] * 0.01 * rows);
 			int Bs = (int) (gradePercent[1] * 0.01 * rows);
 			int Cs = (int) (gradePercent[2] * 0.01 * rows);
-		//	System.out.println("As: " + As + ", Bs: " + Bs + ", Cs: " + Cs);
+			// System.out.println("As: " + As + ", Bs: " + Bs + ", Cs: " + Cs);
 
-			setRank1(int_g1);
-			place = getRank1();
+			String gradeCalculation[] = new String[4];
+			int intGrade[] = new int[4];
+			int place;
 
-			if (As >= place)
-				grade1 = "A";
-			else if (As + Bs >= place)
-				grade1 = "B";
-			else if (As + Bs + Cs >= place)
-				grade1 = "C";
-			else
-				grade1 = "D";
+			for (int i = 0; i < gradeCalculation.length; i++) {
+				gradeCalculation[i] = rankTable.tablemodel.getValueAt(index, i + 5) + "";
+				intGrade[i] = Integer.parseInt(gradeCalculation[i]);
 
-			setRank2(int_g2);
-			place = getRank2();
+				place = 0;
 
-			if (As >= place)
-				grade2 = "A";
-			else if (As + Bs >= place)
-				grade2 = "B";
-			else if (As + Bs + Cs >= place)
-				grade2 = "C";
-			else
-				grade2 = "D";
+				setRank(i + 1, intGrade[i]);
+				place = getRank(i + 1);
 
-			setRank3(int_g3);
-			place = getRank3();
+				if (As >= place)
+					saveGrade[i] = "A";
+				else if (As + Bs >= place)
+					saveGrade[i] = "B";
+				else if (As + Bs + Cs >= place)
+					saveGrade[i] = "C";
+				else
+					saveGrade[i] = "D";
+			}
 
-			if (As >= place)
-				grade3 = "A";
-			else if (As + Bs >= place)
-				grade3 = "B";
-			else if (As + Bs + Cs >= place)
-				grade3 = "C";
-			else
-				grade3 = "D";
-
-			setRank4(int_g4);
-			place = getRank4();
-
-			if (As >= place)
-				grade4 = "A";
-			else if (As + Bs >= place)
-				grade4 = "B";
-			else if (As + Bs + Cs >= place)
-				grade4 = "C";
-			else
-				grade4 = "D";
-		}
-		
-		//ÇĞÁ¡À» ¹İÈ¯
-		public String getGrade1() {
-			return grade1;
 		}
 
-		public String getGrade2() {
-			return grade2;
-		}
-
-		public String getGrade3() {
-			return grade3;
-		}
-
-		public String getGrade4() {
-			return grade4;
+		// í•™ì ì„ ë°˜í™˜
+		public String getGrade(int num) {
+			return saveGrade[num-1];
 		}
 
 	}
