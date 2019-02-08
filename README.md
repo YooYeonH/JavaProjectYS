@@ -1,3 +1,5 @@
+**코드 가독성 향상 및 개선을 위해 전체 리뷰 시작 (19.02.09 ~)** 
+
 # 2018학년도 2학기 JAVA 프로그래밍 B 기말 프로젝트
 > 프로그램 기획 및 개발 : 최세영, 황유연
 
@@ -27,7 +29,7 @@
 <br/><br/>
 
 ## 6. 프로그램 초기 구성 (GUI Layout) - Balsamiq mockup tool 사용
-![성적입력](https://user-images.githubusercontent.com/38810970/52179099-61b42480-2819-11e9-8416-1f2048df382d.jpg)\
+![성적입력](https://user-images.githubusercontent.com/38810970/52179099-61b42480-2819-11e9-8416-1f2048df382d.jpg)
 ![전체성적조회](https://user-images.githubusercontent.com/38810970/52179100-6f69aa00-2819-11e9-9832-0645acb6070f.jpg)
 ![개인성적조회](https://user-images.githubusercontent.com/38810970/52179101-709ad700-2819-11e9-8d14-9ab3257ddd46.png)
 ![강의별세부조회](https://user-images.githubusercontent.com/38810970/52179102-71cc0400-2819-11e9-924b-44e3d1ebe868.png)
