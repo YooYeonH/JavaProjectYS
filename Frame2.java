@@ -862,9 +862,9 @@ public class Frame2 extends JFrame {
 					// (1,3)위치의 판넬, 평균, 최고점, 최하점, 중간값 등을 테이블에서 가져와 라벨에 출력
 					sg[2].setLayout(new BoxLayout(sg[2], BoxLayout.Y_AXIS));
 					sg[2].add((new JLabel("       전체 평균:" + g.getSubAver(1))));
-					sg[2].add(new JLabel("       최고점:" + Integer.toString(g.getHigh1())));
-					sg[2].add(new JLabel("       최하점:" + Integer.toString(g.getLow1())));
-					sg[2].add(new JLabel("       중간값:" + Integer.toString(g.getMid1())));
+					sg[2].add(new JLabel("       최고점:" + Integer.toString(g.getHigh(1))));
+					sg[2].add(new JLabel("       최하점:" + Integer.toString(g.getLow(1))));
+					sg[2].add(new JLabel("       중간값:" + Integer.toString(g.getMid(1))));
 
 					// 문자변수에 저장 후 정수형으로 형변환
 					s = rankTable.tablemodel.getValueAt(st_index, 5) + "";
@@ -874,12 +874,12 @@ public class Frame2 extends JFrame {
 
 					Float t2 = Float.parseFloat(g.getSubAver(1));
 					int t3 = (Math.round(t2));
-					dp1.setValue(num, g.getLow1(), t3, g.getHigh1());
+					dp1.setValue(num, g.getLow(1), t3, g.getHigh(1));
 
 					g.setRank(1, num);
-					sg[2].add(new JLabel("       학점:" + g.getGrade1()));
+					sg[2].add(new JLabel("       학점:" + g.getGrade(1)));
 					sg[2].add(new JLabel(
-							"       등수:" + Integer.toString(g.getRank(1)) + "/" + Integer.toString(g.getTotal1()),
+							"       등수:" + Integer.toString(g.getRank(1)) + "/" + Integer.toString(g.getTotal(1)),
 							SwingConstants.CENTER));
 
 					sg[3].setLayout(new GridLayout(1, 1));
@@ -887,9 +887,9 @@ public class Frame2 extends JFrame {
 
 					sg[5].setLayout(new BoxLayout(sg[5], BoxLayout.Y_AXIS));
 					sg[5].add(new JLabel("       전체 평균:" + g.getSubAver(2)));
-					sg[5].add(new JLabel("       최고점:" + Integer.toString(g.getHigh2())));
-					sg[5].add(new JLabel("       최하점:" + Integer.toString(g.getLow2())));
-					sg[5].add(new JLabel("       중간값:" + Integer.toString(g.getMid2())));
+					sg[5].add(new JLabel("       최고점:" + Integer.toString(g.getHigh(2))));
+					sg[5].add(new JLabel("       최하점:" + Integer.toString(g.getLow(2))));
+					sg[5].add(new JLabel("       중간값:" + Integer.toString(g.getMid(2))));
 
 					s = rankTable.tablemodel.getValueAt(st_index, 6) + "";
 					num = Integer.parseInt(s);
@@ -897,11 +897,11 @@ public class Frame2 extends JFrame {
 
 					t2 = Float.parseFloat(g.getSubAver(2));
 					t3 = (Math.round(t2));
-					dp2.setValue(num, g.getLow2(), t3, g.getHigh2());
+					dp2.setValue(num, g.getLow(2), t3, g.getHigh(2));
 					g.setRank(2, num);
-					sg[5].add(new JLabel("       학점:" + g.getGrade2()));
+					sg[5].add(new JLabel("       학점:" + g.getGrade(2)));
 					sg[5].add(new JLabel(
-							"       등수:" + Integer.toString(g.getRank(2)) + "/" + Integer.toString(g.getTotal2()),
+							"       등수:" + Integer.toString(g.getRank(2)) + "/" + Integer.toString(g.getTotal(2)),
 							SwingConstants.CENTER));
 
 					sg[6].setLayout(new GridLayout(1, 1));
@@ -909,9 +909,9 @@ public class Frame2 extends JFrame {
 
 					sg[8].setLayout(new BoxLayout(sg[8], BoxLayout.Y_AXIS));
 					sg[8].add(new JLabel("       전체 평균:" + g.getSubAver(3)));
-					sg[8].add(new JLabel("       최고점:" + Integer.toString(g.getHigh3())));
-					sg[8].add(new JLabel("       최하점:" + Integer.toString(g.getLow3())));
-					sg[8].add(new JLabel("       중간값:" + Integer.toString(g.getMid3())));
+					sg[8].add(new JLabel("       최고점:" + Integer.toString(g.getHigh(3))));
+					sg[8].add(new JLabel("       최하점:" + Integer.toString(g.getLow(3))));
+					sg[8].add(new JLabel("       중간값:" + Integer.toString(g.getMid(3))));
 
 					s = rankTable.tablemodel.getValueAt(st_index, 7) + "";
 					num = Integer.parseInt(s);
@@ -919,11 +919,11 @@ public class Frame2 extends JFrame {
 
 					t2 = Float.parseFloat(g.getSubAver(3));
 					t3 = (Math.round(t2));
-					dp3.setValue(num, g.getLow3(), t3, g.getHigh3());
+					dp3.setValue(num, g.getLow(3), t3, g.getHigh(3));
 					g.setRank(3, num);
-					sg[8].add(new JLabel("       학점:" + g.getGrade3()));
+					sg[8].add(new JLabel("       학점:" + g.getGrade(3)));
 					sg[8].add(new JLabel(
-							"       등수:" + Integer.toString(g.getRank(3)) + "/" + Integer.toString(g.getTotal3()),
+							"       등수:" + Integer.toString(g.getRank(3)) + "/" + Integer.toString(g.getTotal(3)),
 							SwingConstants.CENTER));
 
 					sg[9].setLayout(new GridLayout(1, 1));
@@ -931,9 +931,9 @@ public class Frame2 extends JFrame {
 
 					sg[11].setLayout(new BoxLayout(sg[11], BoxLayout.Y_AXIS));
 					sg[11].add(new JLabel("       전체 평균:" + g.getSubAver(4)));
-					sg[11].add(new JLabel("       최고점:" + Integer.toString(g.getHigh4())));
-					sg[11].add(new JLabel("       최하점:" + Integer.toString(g.getLow4())));
-					sg[11].add(new JLabel("       중간값:" + Integer.toString(g.getMid4())));
+					sg[11].add(new JLabel("       최고점:" + Integer.toString(g.getHigh(4))));
+					sg[11].add(new JLabel("       최하점:" + Integer.toString(g.getLow(4))));
+					sg[11].add(new JLabel("       중간값:" + Integer.toString(g.getMid(4))));
 					s = rankTable.tablemodel.getValueAt(st_index, 8) + "";
 					num = Integer.parseInt(s);
 
@@ -941,11 +941,11 @@ public class Frame2 extends JFrame {
 
 					t2 = Float.parseFloat(g.getSubAver(4));
 					t3 = (Math.round(t2));
-					dp4.setValue(num, g.getLow4(), t3, g.getHigh4());
+					dp4.setValue(num, g.getLow(4), t3, g.getHigh(4));
 					g.setRank(4, num);
-					sg[11].add(new JLabel("       학점:" + g.getGrade4()));
+					sg[11].add(new JLabel("       학점:" + g.getGrade(4)));
 					sg[11].add(new JLabel(
-							"       등수:" + Integer.toString(g.getRank(4)) + "/" + Integer.toString(g.getTotal4())));
+							"       등수:" + Integer.toString(g.getRank(4)) + "/" + Integer.toString(g.getTotal(4))));
 
 					dp1.repaint();
 					dp2.repaint();
@@ -1334,7 +1334,7 @@ public class Frame2 extends JFrame {
 	/**********************************************************************************/
 	// 성적을 처리하는 클래스
 	public class Grade {
-		// 과목의 평균이 저장될 4개 변수를 생성해 배열 처리
+		// 과목의 평균
 		private float subjectAverage[] = new float[4];
 		// 최고점 변수
 		private int High[] = new int[4];
@@ -1344,12 +1344,12 @@ public class Frame2 extends JFrame {
 		private int Mid[] = new int[4];
 		// 등수 변수
 		private int rank[] = new int[4];
-
+		// 총점 변수
 		private int total[] = new int[4];
 		// "A","B","C" 와같은 학점이 저장될 변수
 		private String saveGrade[] = new String[4];
-
-		private int[][] gradeArray = new int[4][];
+		// 4 과목에 대한 각각의 점수 배열 저장 (2차원 배열의 4개 생성 -> 3차원)
+		private int[][][] gradeArray = new int[4][][];
 
 		String columnNames[] = { "석차", "학과", "학번", "이름", "전화번호", "Java", "소분설", "컴구", "객프", "평점" };
 		QuickSort quick = new QuickSort();
@@ -1360,277 +1360,122 @@ public class Frame2 extends JFrame {
 
 			setSubjectAverage(targetModel);
 
-			setGradeArray1(targetModel);
-			setGradeArray2(targetModel);
-			setGradeArray3(targetModel);
 			try {
-				setGradeArray4(targetModel);
+				setGradeArray(targetModel);
 			} catch (NumberFormatException e) {
-			}
+			} // 원본 코드에서 setGradeArray4(targetModel)에서만 예외처리했는데
+			  // 코드 수정하면서 4과목 일괄 똑같이 예외처리없이 진행한 결과
+			  // 4번째 과목인 객프의 gradeArray 배열만 저장이 안되고 setGradeArray 함수 도중에 탈주
+
+		}
+
+		public void setGradeArray(DefaultTableModel targetModel) {
+
+			int rowNum = targetModel.getRowCount();
+			// 행의 수를 가져오는 메소드
+			// 학생 수로 생각하자
+			int[] total_to_zero = new int[4];
+			// 거꾸로 등수 매길 인덱스 번호
+			int[][] gradeArray = new int[4][rowNum];
+			// 학생 수 만큼의 행을 가진 배열 생성
+
+			
+			// 예외시킬 학생의 수
+			int[] index = new int[rowNum];
+			// 예외시켜야 하는 학생들만 따로 저장하기 위한 배열
+			// 기본적으로 배열의 개수만 지정해서 생성하면, 배열 요소 값은 모두 0으로 초기화됨
+
+			for (int select = 0; select < 4; select++) {
+				// 과목 4개 배열 몽땅 만들기
+				int remove = 0;
+				
+				for (int i = 0; i < rowNum; i++) {
+					if (targetModel.getValueAt(i, 5 + select).toString().equals(" ")) {
+						// 해당 과목의 성적이 빈칸으로 입력된 경우 = 성적이 입력되지 않은 학생의 경우
+						index[remove] = i;
+						// index 배열 안에는 생략시켜야 하는 학생의 번호를 저장
+						remove++;
+						// 예외시킬 학생 수 1 증가
+						continue;
+					}
+					gradeArray[select][i] = (Integer.parseInt(targetModel.getValueAt(i, 5 + select).toString()));
+					// 빈칸이 아닌 경우 점수를 배열에 저장
+					// 빈칸인 성적의 경우 기본 값인 0으로 초기화
+				}
+
+				quick.sort(gradeArray[select], 0, gradeArray[select].length - 1);
+				// quicksort 정렬
+
+				this.gradeArray[select] = new int[rowNum - remove][2];
+				// 전체 정원에서 성적이 입력되지 않은 인원수를 제외
+
+				// 전체 인원수
+				total_to_zero[select] = gradeArray[select].length;
+				this.total[select] = total_to_zero[select];
+
+				int disregard = 0;
+				int change_index;
+
+				for (int i = 0; i < rowNum; i++) {
+					for (int j = 0; j < remove; j++) {
+						if (i == index[j]) {
+							disregard++;
+							continue;
+						}
+					}
+					if (disregard >= 1) {
+						change_index = i - disregard;
+						this.gradeArray[select][change_index][0] = gradeArray[select][i];
+						this.gradeArray[select][change_index][1] = total_to_zero[select]--;
+					} else {
+						this.gradeArray[select][i][0] = gradeArray[select][i];
+						this.gradeArray[select][i][1] = total_to_zero[select]--;
+					} // 등수
+
+				}
+
+				this.High[select] = this.gradeArray[select][gradeArray[select].length - 1 - remove][0];
+				this.Low[select] = this.gradeArray[select][0][0];
+				if ((gradeArray[select].length - remove) % 2 == 1) {
+					this.Mid[select] = this.gradeArray[select][(gradeArray[select].length - remove) / 2 + 1][0];
+				} else
+					this.Mid[select] = this.gradeArray[select][(gradeArray[select].length - remove) / 2][0];
+				}
 
 		}
 
 		public int getTotal(int num) {
-			return total[num-1];
+			return total[num - 1];
 		}
 
-		// 등수 가져오기
+		// 등수 설정하기
 		public void setRank(int num, int score) {
-				for (int i = getTotal(num); i >= 1; i--) {
-					if (score == gradeArray2[i - 1][0]) {
-						this.rank[num-1] = gradeArray2[i - 1][1];
-						break;
-					}
+			for (int i = getTotal(num); i >= 1; i--) {
+				if (score == gradeArray[num - 1][i - 1][0]) {
+					this.rank[num - 1] = gradeArray[num - 1][i - 1][1];
+					break;
 				}
+			}
 		}
 
 		public int getRank(int num) {
-			return rank[num-1];
+			return rank[num - 1];
 		}
 
-		// 배열에 값을 저장 후 최고점, 최하점, 중간값 계산
-		public void setGradeArray(int num, DefaultTableModel targetModel) {
-
-			gradeArray[num-1] = new int[targetModel.getRowCount()];
-			int remove = 0;
-			int[] index = new int[20];
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-
-				if (targetModel.getValueAt(i, 5).toString().equals(" ")) {
-
-					index[remove] = i;
-					remove++;
-					continue;
-				}
-				gradeArray[num-1][i] = (Integer.parseInt(targetModel.getValueAt(i, i+5).toString()));
-			}
-			quick.sort(gradeArray[num-1], 0, gradeArray[num-1].length - 1);
-
-			// System.out.print(gradeArray1[4]);
-
-			this.gradeArray = new int[targetModel.getRowCount() - remove][2];
-
-			this.total[num-1] = gradeArray[num-1].length;
-
-			int disregard = 0;
-			int change_index;
-			for (int i = 0; i < gradeArray1.length; i++) {
-				for (int j = 0; j < remove; j++) {
-					if (i == index[j]) {
-						disregard++;
-						continue;
-
-					}
-				}
-
-				if (disregard >= 1) {
-					change_index = i - disregard;
-					this.gradeArray1[change_index][0] = gradeArray1[i];
-					this.gradeArray1[change_index][1] = total1--;
-				} else {
-					this.gradeArray1[i][0] = gradeArray1[i];
-					this.gradeArray1[i][1] = total1--;
-				}
-
-			}
-
-			this.High1 = this.gradeArray1[gradeArray1.length - remove - 1][0];
-			this.Low1 = this.gradeArray1[0][0];
-			if ((gradeArray1.length - remove) % 2 == 1) {
-				this.Mid1 = this.gradeArray1[(gradeArray1.length - remove) / 2 + 1][0];
-			} else
-				this.Mid1 = this.gradeArray1[(gradeArray1.length - remove) / 2][0];
-
+		public String getGradeArray(int num) {
+			return gradeArray[num - 1][0] + "";
 		}
 
-		
-
-		public String getGradeArray1() {
-
-			return gradeArray1[0] + "";
-		}
-
-		public void setGradeArray2(DefaultTableModel targetModel) {
-
-			int[] gradeArray2 = new int[targetModel.getRowCount()];
-			int remove = 0;
-			int[] index = new int[20];
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				if (targetModel.getValueAt(i, 6).toString().equals(" ")) {
-
-					index[remove] = i;
-					remove++;
-					continue;
-				}
-				gradeArray2[i] = (Integer.parseInt(targetModel.getValueAt(i, 6).toString()));
-			}
-
-			quick.sort(gradeArray2, 0, gradeArray2.length - 1);
-
-			this.gradeArray2 = new int[targetModel.getRowCount() - remove][2];
-
-			int total2 = gradeArray2.length;
-			this.total2 = total2;
-
-			int disregard = 0;
-			int change_index;
-
-			for (int i = 0; i < gradeArray2.length; i++) {
-				for (int j = 0; j < remove; j++) {
-					if (i == index[j]) {
-						disregard++;
-						continue;
-					}
-				}
-				if (disregard >= 1) {
-					change_index = i - disregard;
-					this.gradeArray2[change_index][0] = gradeArray2[i];
-					this.gradeArray2[change_index][1] = total2--;
-				} else {
-					this.gradeArray2[i][0] = gradeArray2[i];
-					this.gradeArray2[i][1] = total2--;
-				} // 등수
-
-			}
-
-			this.High2 = this.gradeArray2[gradeArray2.length - 1 - remove][0];
-			this.Low2 = this.gradeArray2[0][0];
-			if ((gradeArray2.length - remove) % 2 == 1) {
-				this.Mid2 = this.gradeArray2[(gradeArray2.length - remove) / 2 + 1][0];
-			} else
-				this.Mid2 = this.gradeArray2[(gradeArray2.length - remove) / 2][0];
-
-		}
-
-		public String getGradeArray2() {
-			return gradeArray2[0] + "";
-		}
-		
-		public void setGradeArray3(DefaultTableModel targetModel) {
-
-			int[] gradeArray3 = new int[targetModel.getRowCount()];
-			int remove = 0;
-			int[] index = new int[20];
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				if (targetModel.getValueAt(i, 7).toString().equals(" ")) {
-
-					index[remove] = i;
-					remove++;
-					continue;
-				}
-				gradeArray3[i] = (Integer.parseInt(targetModel.getValueAt(i, 7).toString()));
-			}
-			quick.sort(gradeArray3, 0, gradeArray3.length - 1);
-
-			this.gradeArray3 = new int[targetModel.getRowCount() - remove][2];
-
-			int total3 = gradeArray3.length;
-			this.total3 = total3;
-
-			int disregard = 0;
-			int change_index;
-
-			for (int i = 0; i < gradeArray3.length; i++) {
-				for (int j = 0; j < remove; j++) {
-					if (i == index[j]) {
-
-						disregard++;
-						continue;
-					}
-				}
-				if (disregard >= 1) {
-					change_index = i - disregard;
-					this.gradeArray3[change_index][0] = gradeArray3[i];
-					this.gradeArray3[change_index][1] = total3--;
-				} else {
-					this.gradeArray3[i][0] = gradeArray3[i];
-					this.gradeArray3[i][1] = total3--;
-				}
-
-			}
-
-			this.High3 = this.gradeArray3[gradeArray3.length - remove - 1][0];
-			this.Low3 = this.gradeArray3[0][0];
-			if ((gradeArray3.length - remove) % 2 == 1) {
-				this.Mid3 = this.gradeArray3[(gradeArray3.length - remove) / 2 + 1][0];
-			} else
-				this.Mid3 = this.gradeArray3[(gradeArray3.length - remove) / 2][0];
-
-		}
-
-		public String getGradeArray3() {
-
-			return gradeArray3[0] + "";
-		}
-		
-
-		public void setGradeArray4(DefaultTableModel targetModel) {
-
-			int[] gradeArray4 = new int[targetModel.getRowCount()];
-			int remove = 0;
-			int[] index = new int[20];
-			for (int i = 0; i < targetModel.getRowCount(); i++) {
-				if (targetModel.getValueAt(i, 8).toString().equals(" ")) {
-
-					index[remove] = i;
-					remove++;
-					continue;
-				}
-				try {
-					gradeArray4[i] = (Integer.parseInt(targetModel.getValueAt(i, 8).toString()));
-				} catch (NumberFormatException e) {
-				}
-			}
-			quick.sort(gradeArray4, 0, gradeArray4.length - 1);
-
-			this.gradeArray4 = new int[targetModel.getRowCount() - remove][2];
-
-			int total4 = gradeArray4.length;
-			this.total4 = total4;
-
-			int disregard = 0;
-			int change_index;
-
-			for (int i = 0; i < gradeArray4.length; i++) {
-				for (int j = 0; j < remove; j++) {
-					if (i == index[j]) {
-						disregard++;
-						continue;
-					}
-				}
-				if (disregard >= 1) {
-					change_index = i - disregard;
-					this.gradeArray4[change_index][0] = gradeArray4[i];
-					this.gradeArray4[change_index][1] = total4--;
-				} else {
-					this.gradeArray4[i][0] = gradeArray4[i];
-					this.gradeArray4[i][1] = total4--;
-				}
-			}
-
-			this.High4 = this.gradeArray4[gradeArray4.length - remove - 1][0];
-			this.Low4 = this.gradeArray4[0][0];
-			if ((gradeArray4.length - remove) % 2 == 1) {
-				this.Mid4 = this.gradeArray4[(gradeArray4.length - remove) / 2 + 1][0];
-			} else
-				this.Mid4 = this.gradeArray4[(gradeArray4.length - remove) / 2][0];
-
-		}
-
-		public String getGradeArray4() {
-
-			return gradeArray4[0] + "";
-		}
 		public int getHigh(int num) {
-			return High[num-1];
+			return High[num - 1];
 		}
 
 		public int getLow(int num) {
-			return Low[num-1];
+			return Low[num - 1];
 		}
 
 		public int getMid(int num) {
-			return Mid[num-1];
+			return Mid[num - 1];
 		}
 
 		// 값을 테이블에서 가져와 형변환 후 평균 구하고 set
@@ -1655,7 +1500,7 @@ public class Frame2 extends JFrame {
 
 		// 평균 반환해주는 함수
 		public String getSubAver(int num) {
-			return subjectAverage[num-1] + "";
+			return subjectAverage[num - 1] + "";
 		}
 
 		// 점수에 따른 학점 계산 -> 절대평가
@@ -1715,7 +1560,7 @@ public class Frame2 extends JFrame {
 
 		// 학점을 반환
 		public String getGrade(int num) {
-			return saveGrade[num-1];
+			return saveGrade[num - 1];
 		}
 
 	}
