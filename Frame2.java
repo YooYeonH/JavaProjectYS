@@ -829,6 +829,12 @@ public class Frame2 extends JFrame {
 					else if (flag == true)
 						g.setGrade(st_index);
 
+					
+					// 아래 패널 부분을 for문으로 요약하려고 했으나 
+					// 'BoxLayout can't be shared' 에러..
+					// 다른 코드들부터 확인해보면서 코드를 줄일 수 있는 방법을 모색해야 할 듯
+					
+					
 					// DrawingPanel의 객체를 과목마다 생성
 					dp1 = new DrawingPanel();
 					sg[1].setLayout(new BoxLayout(sg[1], BoxLayout.X_AXIS));
